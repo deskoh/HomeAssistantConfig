@@ -1,0 +1,44 @@
+fan:
+  - platform: xiaomi_miio_fan
+    host: 192.168.1.58
+    token: !secret mi_fan_token
+    name: Xiaomi Fan
+    model: zhimi.fan.sa1
+    scan_interval: 60
+
+group:
+  room2_fan_card:
+    name: Fan
+    control: hidden
+    entities:
+      - fan.xiaomi_fan
+      - input_number.room2_fan_speed
+      - input_select.room2_fan_swing_angle
+      - input_boolean.room2_fan_natural_mode
+
+input_number:
+  room2_fan_speed:
+    name: Speed
+    icon: mdi:weather-windy
+    initial: 100
+    min: 1
+    max: 100
+    step: 1
+
+input_select:
+  room2_fan_swing_angle:
+    name: Oscillation Angle
+    icon: mdi:rotate-3d
+    options:
+    - "0"
+    - "30"
+    - "60"
+    - "90"
+    - "120"
+    initial: "0"
+
+input_boolean:
+  room2_fan_natural_mode:
+    name: "Natural Mode"
+    initial: on
+    icon: mdi:weather-windy-variant

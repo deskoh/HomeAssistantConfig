@@ -1,0 +1,29 @@
+- platform: mqtt
+  name: Bridge state
+  state_topic: "zigbee2mqtt/bridge/state"
+  icon: mdi:router-wireless
+
+- platform: time_date
+  display_options:
+    - 'date_time'
+    - 'time'
+
+- platform: mitemp_bt
+  name: Living Room
+  mac: '4c:65:a8:d5:c0:f8'
+  cache_value: 600
+  monitored_conditions:
+    - temperature
+    - humidity
+
+- platform: hue
+  ip_address: 192.168.1.59
+  token: !secret hue_token
+
+- platform: command_line
+  name: CPU Temperature
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  # If errors occur, remove degree symbol below
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) | round(1) }}'
+  scan_interval: 200

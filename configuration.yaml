@@ -1,0 +1,199 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret lat
+  longitude: !secret lon
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Asia/Singapore
+  packages: !include_dir_named packages
+  # Customization file
+  customize: !include customize.yaml
+  customize_glob:
+    script.*morning*:
+      icon: mdi:white-balance-sunny
+    script.*night*:
+      icon: mdi:sleep
+    sensor.*temp*:
+      icon: mdi:thermometer
+    sensor.*humidity*:
+      icon: mdi:water-percent
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: !secret baseurl
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  cors_allowed_origins:
+    - https://google.com
+
+# Discover some devices automatically
+# discovery:
+#   ignore:
+#     - yeelight
+#     - samsung_tv
+
+# logger:
+#   default: warning
+#   logs:
+#     homeassistant.core: debug
+
+hassio:
+
+mqtt:
+  discovery: true
+  password: mqtt
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+
+recorder:
+  purge_keep_days: 7
+  exclude:
+    domains:
+      - automation
+      - updater
+      - weblink
+    entities:
+      - sensor.time
+      - sensor.bedroom_1_switch
+      - sensor.bedroom_2_switch
+      - sensor.room1_button
+      - sensor.room2_button1
+      - sensor.room2_button2
+      - input_select.room2_fan_swing_angle
+      - switch.novita_fan
+      - switch.novita_fan_speed
+      - switch.novita_fan_osc
+      - sensor.bridge_state
+
+# Enables support for tracking state changes over time
+history:
+  exclude:
+    domains:
+      - input_boolean
+      - input_datetime
+      - input_number
+      - script
+      - group
+    entities:
+      - sensor.cpu_temperature
+      - fan.xiaomi_fan
+
+# View all events in a logbook
+logbook:
+  exclude:
+    domains:
+      - input_boolean
+      - input_datetime
+      - input_number
+      - script
+      - group
+    entities:
+      - light.room_1_lights
+      - light.room_2_lights
+      - sensor.mi1_temp
+      - sensor.mi2_temp
+
+# Enables a map showing the location of tracked devices
+# map:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  - platform: google
+  # - platform: microsoft
+  #   api_key: !secret microsoft_tts_key
+
+google_assistant:
+  project_id: home-assistant-217012
+  api_key: !secret google_api_key
+  expose_by_default: false
+  exposed_domains:
+    - fan
+  entity_config:
+    light.lamp_1:
+      expose: true
+      name: Wall Lamp
+    light.lamp_2:
+      expose: true
+      name: Standing Lamp
+    light.lamp_3:
+      expose: true
+      name: Table Lamp
+    light.lamp_4:
+      expose: true
+      name: Wall Lamp
+    light.lightstrip:
+      expose: true
+      name: Light Strip
+    light.floor_light:
+      expose: true
+      name: Floor Light
+    fan.xiaomi_fan:
+      expose: true
+      name: Fan
+    scene.night:
+      expose: true
+    switch.room1_tv:
+      expose: true
+      name: Room 1 TV
+      aliases:
+        - TV
+        - Samsung TV
+    switch.novita_fan:
+      expose: true
+      name: Novita Fan
+      aliases:
+        - Fan
+
+group: !include groups.yaml
+scene: !include scene.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+light: !include light.yaml
+sensor: !include sensor.yaml
+
+python_script:
+
+asuswrt:
+  host: 192.168.1.1
+  username: admin
+  password: !secret router_password
+
+device_tracker:
+  - platform: asuswrt
+    interval_seconds: 45
+    new_device_defaults:
+      track_new_devices: False
+
+# inputs
+input_boolean: !include input_boolean.yaml
+input_datetime: !include input_datetime.yaml
+input_number: !include input_number.yaml
+input_select: !include input_select.yaml
+
+weblink:
+  entities:
+    - name: Router
+      url: http://192.168.1.1/
+      icon: mdi:router-wireless
+    - name: Pi-Hole
+      url: http://192.168.1.111:8124/admin/

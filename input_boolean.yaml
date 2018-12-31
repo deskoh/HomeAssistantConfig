@@ -1,0 +1,30 @@
+zigbee_permit_join:
+  name: Allow devices to join
+  initial: off
+  icon: mdi:cellphone-wireless
+
+room1_wakeup_dismiss:
+  name: "Dismiss next wake-up"
+  initial: off
+  icon: mdi:sync-off
+room1_wakeup_enabled:
+  name: "Wake-up lights"
+  initial: on
+  icon: mdi:theme-light-dark
+room1_wakeup_weekend:
+  name: "Enable Wake-up on weekends"
+  initial: on
+  icon: mdi:calendar-blank
+
+room2_wakeup_dismiss:
+  name: "Dismiss next wake-up"
+  initial: off
+  icon: mdi:sync-off
+room2_wakeup_enabled:
+  name: "Wake-up lights"
+  initial: on
+  icon: mdi:theme-light-dark
+room2_wakeup_weekend:
+  name: "Enable Wake-up on weekends"
+  initial: off
+  icon: mdi:calendar-blank

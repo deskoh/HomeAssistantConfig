@@ -1,0 +1,15 @@
+room1_wakeup_duration:
+  name: Light fade-in duration
+  icon: mdi:clock-in
+  initial: 10
+  min: 1
+  max: 15
+  step: 1
+
+room2_wakeup_duration:
+  name: Light fade-in duration
+  icon: mdi:clock-in
+  initial: 10
+  min: 1
+  max: 15
+  step: 1

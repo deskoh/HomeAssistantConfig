@@ -1,0 +1,124 @@
+- name: Room 1 White
+  entities:
+    light.lamp_1:
+      state: on
+      color_temp: 153
+      brightness: 255
+    light.lamp_2:
+      state: on
+      color_temp: 153
+      brightness: 255
+    light.lightstrip:
+      state: on
+      color_temp: 153
+      brightness: 255
+    light.floor_light:
+      state: off
+- name: Room 1 Color Loop
+  entities:
+    light.lamp_1:
+      state: on
+      effect: colorloop
+    light.lamp_2:
+      state: on
+      effect: colorloop
+    light.lightstrip:
+      state: on
+      effect: Slowdown
+    light.floor_light:
+      state: on
+      effect: Slowdown
+- name: Room 1 Arctic Aurora
+  entities:
+    light.lamp_1:
+      state: on
+      rgb_color: [183, 180, 255]
+      brightness: 144
+    light.lamp_2:
+      state: on
+      rgb_color: [87, 0, 255]
+      brightness: 144
+    light.lightstrip:
+      state: on
+      rgb_color: [135, 90, 255]
+      brightness: 144
+    light.floor_light:
+      state: on
+      rgb_color: [135, 90, 255]
+      brightness: 144
+- name: Room 1 Spring Blossom
+  entities:
+    light.lamp_1:
+      state: on
+      rgb_color: [255, 167, 135]
+      brightness: 217
+    light.lamp_2:
+      state: on
+      rgb_color: [255, 202, 255]
+      brightness: 217
+    light.lightstrip:
+      state: on
+      rgb_color: [255, 185, 177]
+      brightness: 217
+    light.floor_light:
+      state: on
+      rgb_color: [255, 185, 177]
+      brightness: 217
+- name: Room 1 Tropical Twilight
+  entities:
+    light.lamp_1:
+      state: on
+      rgb_color: [255, 161, 78]
+      brightness: 114
+    light.lamp_2:
+      state: on
+      rgb_color: [200, 164, 255]
+      brightness: 114
+    light.lightstrip:
+      state: on
+      rgb_color: [228, 162, 167]
+      brightness: 114
+    light.floor_light:
+      state: on
+      rgb_color: [228, 162, 167]
+      brightness: 114
+
+- name: Room 2 On
+  entities:
+    light.lamp_3:
+      state: on
+      color_temp: 153
+      brightness: 255
+    light.lamp_4:
+      state: on
+      brightness: 255
+- name: Room 2 Color Loop
+  entities:
+    light.lamp_3:
+      state: on
+      effect: colorloop
+    light.lamp_4: off
+- name: Room 2 Arctic Aurora
+  entities:
+    light.lamp_3:
+      state: on
+      rgb_color: [183, 180, 255]
+      brightness: 144
+    light.lamp_4: off
+- name: Room 2 Spring Blossom
+  entities:
+    light.lamp_3:
+      state: on
+      rgb_color: [255, 167, 135]
+      brightness: 217
+    light.lamp_4: off
+- name: Night
+  entities:
+    light.lamp_3:
+      state: on
+      # color_temp: 153
+      effect: random
+      brightness: 255
+    light.lamp_4: off
+    fan.xiaomi_fan:
+      state: on

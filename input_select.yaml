@@ -1,0 +1,36 @@
+room_1_status:
+  name: Room 1 Status
+  options:
+  - "Awake"
+  - "Sleeping"
+  initial: "Awake"
+
+room_2_status:
+  name: Room 2 Status
+  options:
+   - "Awake"
+   - "Sleeping"
+  initial: "Awake"
+
+room_1_scene:
+  name: Room 1 Scene
+  options:
+   - "scene.room_1_white"
+  #  - "scene.room_1_wall_lamp_on"
+  #  - "scene.room_1_standing_lamp_on"
+  #  - "scene.room_1_led_strip_on"
+  #  - "scene.room_1_color_loop"
+   - "scene.room_1_arctic_aurora"
+   - "scene.room_1_spring_blossom"
+   - "scene.room_1_tropical_twilight"
+  initial: "scene.room_1_white"
+
+room_2_scene:
+  name: Room 2 Scene
+  options:
+   - "scene.room_2_on"
+  #  - "scene.room_2_table_lamp_on"
+   - "scene.room_2_color_loop"
+   - "scene.room_2_arctic_aurora"
+   - "scene.room_2_spring_blossom"
+  initial: "scene.room_2_on"

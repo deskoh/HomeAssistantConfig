@@ -1,0 +1,22 @@
+- platform: yeelight
+  devices:
+    192.168.1.50:
+      name: Lightstrip
+      save_on_change: True
+      # use_music_mode: True
+    192.168.1.51:
+      name: Floor Light
+      save_on_change: True
+      # use_music_mode: True
+- platform: group
+  name: Room 1 Lights
+  entities:
+    - light.lamp_1
+    - light.lamp_2
+    - light.lightstrip
+    #- light.floor_light
+- platform: group
+  name: Room 2 Lights
+  entities:
+    - light.lamp_3
+    - light.lamp_4

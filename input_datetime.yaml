@@ -1,0 +1,10 @@
+room1_wakeup_time:
+  name: "Start lights at"
+  has_time: true
+  has_date: false
+  initial: "05:57"
+room2_wakeup_time:
+  name: "Start lights at"
+  has_time: true
+  has_date: false
+  initial: "06:27"

@@ -1,0 +1,60 @@
+homeassistant:
+  customize:
+    script.room1_tv_source:
+      icon: mdi:video-input-hdmi
+    script.room1_tv_vol_down:
+      icon: mdi:volume-minus
+    script.room1_tv_vol_up:
+      icon: mdi:volume-plus
+
+switch:
+  - platform: template
+    switches:
+      room1_tv:
+        friendly_name: Samsung TV
+        value_template: "{{ is_state('device_tracker.room1_tv', 'home') }}"
+        turn_on:
+          service: switch.broadlink_send_packet_192_168_1_112
+          data:
+            packet:
+              - "JgBGAJWVEzcTNxM3ExMSExITEhMSExI4EjgSOBMSExITEhMSExITEhM3ExMSExI4EhMSExITEjgTEhM3EzcTEhM3EzgSOBIADQUAAA=="
+        turn_off:
+          service: switch.broadlink_send_packet_192_168_1_112
+          data:
+            packet:
+              - "JgBGAJaUEzgSOBI4ExITEhMSExITEhM4EjgSOBITExITEhMSExITEhM4EhMSExITEhMSExMSEzcTEhM3EzgSOBI4EzcTNxMADQUAAA=="
+
+input_select:
+  room1_tv_channels:
+    name: TV Channel
+    icon: mdi:grid
+    options:
+    - "Select Channel"
+    - "Channel 5"
+    - "Channel 8"
+    - "Channel NewsAsia"
+    - "Channel U"
+    initial: "Select Channel"
+
+script:
+  'room1_tv_source':
+    alias: Select Source
+    sequence:
+      - service: switch.broadlink_send_packet_192_168_1_112
+        data:
+          packet:
+            - "JgBGAJOXETkROhA6EBUQFRAVEBUQFRA6EDoROREUERUQFRAVEBUQOhAVEBUQFRAVEBUQFREUERQRORE6EDoQOhA6EDoQOhEADQUAAA=="
+  'room1_tv_vol_up':
+    alias: Volume Up
+    sequence:
+      - service: switch.broadlink_send_packet_192_168_1_112
+        data:
+          packet:
+            - "JgBGAJOXETkROhA6EBUQFRAVEBUQFRA6EDoROREUERUQFRAVEBUQOhA6EDoQFRAVEBURFBITEhMSExEVEjgSOBI4EjgSOBIADQUAAA=="
+  'room1_tv_vol_down':
+    alias: Volume Down
+    sequence:
+      - service: switch.broadlink_send_packet_192_168_1_112
+        data:
+          packet:
+            - "JgCMAJSWEjgSORE5ERQRFBEUERQRFBE5ETkSOBITEhMSFBEUERQQOhE5ERQQOhEUEBURFBEUERQRFBE5ERUQOhA6EDoQOhAABg=="

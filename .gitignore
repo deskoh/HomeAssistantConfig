@@ -1,0 +1,5 @@
+.storage
+secrets.yaml
+known_devices.yaml
+www/images
+automations.yaml

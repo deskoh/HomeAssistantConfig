@@ -1,0 +1,29 @@
+switch:
+  - platform: broadlink
+    host: 192.168.1.112
+    mac: '78:0F:77:19:FC:EE'
+    type: rm_mini
+    friendly_name: 'RM1'
+    timeout: 15
+    switches:
+      novita_fan:
+        friendly_name: Novita Fan
+        command_on: JgBIAAABKJQTEhMSExMSExMSEzcTExITEjgTNxM4EzcTOBMSEzcTOBMSExITNxM4ExMSExITEhMTNxM4EhMTEhM3EzgTNxM4EwANBQ==
+        command_off: JgBIAAABKJQTEhMSExMSExMSEzcTExITEjgTNxM4EzcTOBMSEzcTOBMSExITNxM4ExMSExITEhMTNxM4EhMTEhM3EzgTNxM4EwANBQ==
+      novita_fan_speed:
+        friendly_name: Speed
+        command_on: JgBIAAABKJQTExMSExITEhMSEzgTEhMSEzcUNxM3EzgTNxMSEzgTNxMTEzcTNxMTEzcTEhMSExMTNxMSExITOBMSEzcTOBM3EwANBQ==
+        command_off: JgBIAAABKJQTEhMSExITEhMTEzcTEhMSEzgTNxM4EzcTOBMSEzcTOBM3EzgTNxM3FBITEhMSExITEhMTExITEhM3EzgTNxM4EwANBQ==
+      novita_fan_osc:
+        friendly_name: Oscillation
+        command_on: JgBIAAABKJQTEhMSFBITEhMSEzcSFBMSEzcSOBQ3EzcUNxMSEzcUNxMSExIUERQSEzcTEhQRFBEUNxM3FDcTNxMSEzgTNxM4EwANBQ==
+        command_off: JgBIAAABKJQTExITEhQSExISEzcTExIUEjcTOBI4EzgSOBIUETkQOhEVEBUQOhEVEDkRFg8WERQROBI5EhQROBIUEjgTNxM4EwANBQ==
+
+group:
+  room1_fan_card:
+    name: Fan
+    control: hidden
+    entities:
+      - switch.novita_fan
+      - switch.novita_fan_speed
+      - switch.novita_fan_osc

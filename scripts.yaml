@@ -1,0 +1,166 @@
+blink_light:
+  alias: Blink Light
+  sequence:
+  - data_template:
+      entity_id: '{{ light_entity }}'
+      flash: "{% if long == \"true\" %}\n  long\n{% else %}\n  short\n{% endif %}\n"
+    service: light.turn_on
+wake_up_lights:
+  alias: Wake Up Lights
+  sequence:
+  - condition: template
+    value_template: '{{ is_state(light_entity, "off") and is_state(wakeup_dismiss, "off")
+      and is_state(wakeup_enabled, "on") and (is_state(wakeup_weekend, "on") or now().weekday()
+      < 5) }}'
+  - data_template:
+      brightness: 255
+      color_temp: 330
+      entity_id: '{{ light_entity }}'
+      transition: '{{ states(wakeup_duration) | float * 60 }}'
+    service: light.turn_on
+  - data_template:
+      entity_id: '{{ input_status }}'
+      option: Awake
+    service: input_select.select_option
+  - data:
+      message: triggered
+      name: Wakeup lights
+    service: logbook.log
+  - delay:
+      minutes: 3
+  - service: media_player.play_media
+    data_template:
+      entity_id: '{{ speaker }}'
+      media_content_id: !secret alarm_media_url
+      media_content_type: audio/ogg
+  - service: fan.turn_off
+    data:
+      entity_id: '{{ fan }}'
+good_morning:
+  alias: Good Morning
+  sequence:
+  - service: tts.google_say
+    data_template:
+      entity_id:
+      - '{{ speaker }}'
+      message: >
+        {{ tts_prefix }}
+        Turning on lights.
+        {% if fan is not none and is_state(fan, 'on') %}
+        Switching off fan.
+        {% endif %}
+        {% set alarm_offset = state_attr(wakeup_time, 'timestamp') / 60 - (now().hour|multiply(60) + now().minute) %}
+        {% if alarm_offset > 0 and alarm_offset < 120 and is_state(wakeup_dismiss, 'off') %}
+        Dismissing upcoming wake up lights.
+        {% endif %}
+  - service: light.turn_on
+    data_template:
+      entity_id: '{{ lights }}'
+      brightness: 255
+      transition: 15
+  - service: fan.turn_off
+    data_template:
+      entity_id: '{{ fan }}'
+  - service: input_select.select_option
+    data_template:
+      entity_id: '{{ room_status }}'
+      option: Awake
+  - condition: template
+    value_template: '{% set alarm_offset = state_attr(wakeup_time, "timestamp") /
+      60 - (now().hour|multiply(60) + now().minute) %} {{ alarm_offset > 0 and alarm_offset
+      < 120 and is_state(wakeup_dismiss, "off") }}'
+  - service: input_boolean.turn_on
+    data_template:
+      entity_id: '{{ wakeup_dismiss }}'
+good_night:
+  alias: Good Night
+  sequence:
+  - service: light.turn_off
+    data_template:
+      entity_id: '{{ lights }}'
+      transition: 30
+  - service: input_select.select_option
+    data_template:
+      entity_id: '{{ room_status }}'
+      option: Sleeping
+  - service: tts.google_say
+    data_template:
+      entity_id:
+      - '{{ speaker }}'
+      message: "{{ [
+        'Good night. Sleep tight.',
+        'Good night. Sweet dreams.',
+        'You’ll be the last thing I think of before I fall asleep and the first thing I think of when I wake up.',
+        'Good night, sleep tight. I will be dreaming of you with all my might.',
+        'If someone wishes you goodnight every day, you’re happier than so many people.',
+        'And tonight, I’ll fall asleep with you in my heart.',
+        'May you dream of lovely things and to find them real.',
+        'Go to bed with satisfaction. Wake up with determination.',
+        'Day is over, night has come. Today is gone, what’s done is done. Embrace your dreams, through the night. Tomorrow comes with a whole new light.',
+        'Always end the day, with a positive thought. No matter how hard things were, tomorrow’s a fresh opportunity to make it better.',
+        'I don’t dream about you, because I can never fall asleep thinking about you.',
+        'Sleeping is nice. You forget about everything for a little while.',
+        'When you lie down, you will not be afraid. Your sleep will be sweet.',
+        'I must get my beauty rest. See you in the morning.'] | random }}"
+'room1_good_morning':
+  alias: Room 1 Good Morning
+  sequence:
+  - service: script.good_morning
+    data_template:
+      tts_prefix: '{{ tts_prefix }}'
+      lights: light.room_1_lights
+      fan: ''
+      room_status: input_select.room_1_status
+      speaker: media_player.room1_speaker
+      wakeup_dismiss: input_boolean.room1_wakeup_dismiss
+      wakeup_time: input_datetime.room1_wakeup_time
+'room2_good_morning':
+  alias: Room 2 Good Morning
+  sequence:
+  - service: script.good_morning
+    data_template:
+      tts_prefix: '{{ tts_prefix }}'
+      lights: light.room_2_lights
+      fan: fan.xiaomi_fan
+      room_status: input_select.room_2_status
+      speaker: media_player.room2_speaker
+      wakeup_dismiss: input_boolean.room2_wakeup_dismiss
+      wakeup_time: input_datetime.room2_wakeup_time
+'room1_good_night':
+  alias: Room 1 Good Night
+  sequence:
+  - service: script.good_night
+    data:
+      lights: light.room_1_lights
+      room_status: input_select.room_1_status
+      speaker: media_player.room1_speaker
+  - condition: state
+    entity_id: device_tracker.room1_tv
+    state: home
+  - service: switch.turn_off
+    data:
+      entity_id: switch.room1_tv
+'room2_good_night':
+  alias: Room 2 Good Night
+  sequence:
+  - service: script.good_night
+    data:
+      lights: light.room_2_lights
+      room_status: input_select.room_2_status
+      speaker: media_player.room2_speaker
+'room1_7min_workout':
+  alias: 7 minute workout
+  sequence:
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.room1_speaker
+      media_content_id: !secret media_url
+      media_content_type: audio/mp3
+'room2_7min_workout':
+  alias: 7 minute workout
+  sequence:
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.room2_speaker
+      media_content_id: !secret media_url
+      media_content_type: audio/mp3
