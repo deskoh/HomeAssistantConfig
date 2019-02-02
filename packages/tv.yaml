@@ -58,3 +58,37 @@ script:
         data:
           packet:
             - "JgCMAJSWEjgSORE5ERQRFBEUERQRFBE5ETkSOBITEhMSFBEUERQQOhE5ERQQOhEUEBURFBEUERQRFBE5ERUQOhA6EDoQOhAABg=="
+
+automation:
+  - id: room1_tv_channels
+    alias: Room 1 TV Channels
+    trigger:
+    - platform: state
+      entity_id: input_select.room1_tv_channels
+    condition:
+    - condition: template
+      value_template: "{{ not is_state('input_select.room1_tv_channels', 'Select Channel') }}"
+    action:
+    - service: switch.broadlink_send_packet_192_168_1_112
+      data_template:
+        packet: >
+          {% if trigger.to_state.state == 'Channel 5' %}
+            JgBGAJSVEzgSOBM3ExISExIUEhMRFBI4EjgSOBITEhMSExITExITNxMTEjgSExEUEhMSExEUERQRORITEjgSOBI4EjkRORIADQUAAA==
+          {% elif trigger.to_state.state == 'Channel 8' %}
+            JgBGAJWVEzcTNxM4EhMSExITEhMSExI4EjgSOBMSExITExITEhMSExI4EjgSExITEhMSExITEzcTEhMTEjgTNxI4EjgSOBIADQUAAA==
+          {% elif trigger.to_state.state == 'Channel NewsAsia' %}
+            JgBGAJSXEDoQOhE5ERQRFRAVEBUQFRA6EDoROREUERUQFRAVEBUQFRA6ERQROREVEBUQFRAVEDoQFRA6ERQRORE6EDoQOhAADQUAAA==
+          {% elif trigger.to_state.state == 'Channel U' %}
+            JgBGAJSXEDoQOhA6ERQRFBEUERUQFRA6EDoQOhEUERQRFBEVEBUQFRAVEDoQOhAVERQRFBEUEToQOhAVEBUQOhE5ETkROhAADQUAAA==
+          {% elif trigger.to_state.state == 'okto' %}
+            JgBGAJOXEToRORA6EBUQFRAVERQRFBE5EToQOhAVEBUQFRAVERQROREVEDoQOhAVEBUQFREUERQROREVEBUQOhA6ETkROREADQUAAA
+          {% endif %}
+    - delay:
+        milliseconds: 200 
+    - service: switch.broadlink_send_packet_192_168_1_112
+      data:
+        packet: JgBGAJaUEzgSOBI4ExITEhMSExITEhM3EzgSOBITEhMSExITExITEhMSExITNxMTEjgSOBITEjgTNxM3ExITNxMTEhMSOBIADQUAAA==
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.room1_tv_channels
+        option: Select Channel

@@ -1,0 +1,57 @@
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.1.247
+    token: !secret mi_vacuum_token
+    name: Xiaomi Roborock
+
+group:
+  vacuum_card:
+    name: Vacuum
+    control: hidden
+    entities:
+      - vacuum.xiaomi_roborock
+      - sensor.vacuum_status
+      - input_select.vacuum_room
+
+input_select:
+  vacuum_room:
+    name: Choose a room to clean
+    options:
+      - Select Room
+      - Living Room
+      - Room 1
+      - Room 2
+    initial: Select Room
+  
+sensor:
+  - platform: template
+    sensors:
+      vacuum_status:
+        friendly_name: "Vacuum Status"
+        entity_id:
+          - vacuum.xiaomi_roborock
+        value_template: "{{ state_attr('vacuum.xiaomi_roborock', 'status') }}"
+
+automation:
+  - alias: Vacuum Room
+    trigger:
+    - platform: state
+      entity_id: input_select.vacuum_room
+      from: 'Select Room'
+    action:
+    - service: vacuum.send_command
+      data_template:
+        entity_id: vacuum.xiaomi_roborock
+        command: app_zoned_clean
+        params: >
+          {% if is_state('input_select.vacuum_room', 'Living Room') %}
+            [[20500,25000,23750,32500,1]]
+          {% elif is_state('input_select.vacuum_room', 'Room 1') %}
+            [[23500,30500,27500,34750,1]]
+          {% elif is_state('input_select.vacuum_room', 'Room 2') %}
+            [[23500,25000,30500,26500,1]]
+          {% endif %}
+    - service: input_select.select_option
+      entity_id: input_select.vacuum_room
+      data_template:
+        option: "Select Room"
