@@ -70,7 +70,7 @@ recorder:
       - updater
       - weblink
     entities:
-      - sensor.time
+      - sensor.date_time
       - sensor.bedroom_1_switch
       - sensor.bedroom_2_switch
       - sensor.room1_button
