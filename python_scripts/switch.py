@@ -81,8 +81,9 @@ elif switch_state == '4_hold_up':
         message = 'Upcoming alarm is {}!'.format(state)
         tts(hass, speaker, message)
     elif has_fan:
-        turn_off(hass, 'fan', fan)
-elif switch_state == '2_click_up' or switch_state == '3_click_up' or switch_state == '2_hold' or switch_state == '3_hold':
+        service_data = {'entity_id': fan}
+        hass.services.call('fan', 'toggle', service_data, False)
+elif switch_state == '2_click_up' or switch_state == '3_click_up' or switch_state == '2_hold_up' or switch_state == '3_hold_up':
     if (light_states.state == 'off') and has_fan:
         # Fan control
         if switch_state == '2_click_up' or switch_state == '3_click_up':
@@ -96,6 +97,7 @@ elif switch_state == '2_click_up' or switch_state == '3_click_up' or switch_stat
             service_data = {'entity_id': fan_speed, 'value': speed}
             hass.services.call('input_number', 'set_value',
                                service_data, False)
+            tts(hass, speaker, speed)
         elif switch_state == '2_hold':
             # Fan oscillating control
             swing_angle = hass.states.get(fan_swing).state

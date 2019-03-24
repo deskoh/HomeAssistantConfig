@@ -32,9 +32,7 @@ if button == 'room1_button':
         activate_scene(hass, 'scene.room_1_white')
     elif click == 'quadruple':
         turn_off(hass, 'light', 'light.room_1_lights')
-        tv_state = hass.states.get('binary_sensor.room1_tv').state
-        if (tv_state == 'on'):
-            turn_off(hass, 'switch', 'switch.room1_tv')
+        turn_off(hass, 'switch', 'switch.room1_tv')
     elif click == 'long':
         hass.services.call('script', 'room1_good_night', {}, False)
 elif button == 'room2_button1' or button == 'room2_button2':

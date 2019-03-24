@@ -1,6 +1,6 @@
 # [Home Assistant](https://www.home-assistant.io/) Configuration
 
-> HA Version: 0.83.2
+> HA Version: 0.90.1
 
 ## Automations
 
@@ -81,5 +81,7 @@
 [Hass.io Add-on: zigbee2mqtt](https://github.com/danielwelch/hassio-zigbee2mqtt)
 
 [Hue Dimmer Custom Component](https://github.com/robmarkcole/Hue-sensors-HASS)
+
+[Xiaomi Fan Component](https://github.com/syssi/xiaomi_fan)
 
 https://github.com/CCOSTAN/Home-AssistantConfig

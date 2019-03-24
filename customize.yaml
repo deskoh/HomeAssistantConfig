@@ -26,7 +26,7 @@ light.room_1_lights:
   icon: mdi:bed-empty
 light.room_2_lights:
   icon: mdi:bed-empty
-sensor.date__time:
+sensor.date_time:
   hidden: true
 sensor.time:
   hidden: true

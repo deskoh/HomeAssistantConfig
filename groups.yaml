@@ -82,7 +82,6 @@ room1_tv_card:
   name: Samsung TV
   control: hidden
   entities:
-    - binary_sensor.room1_tv
     - switch.room1_tv
     - input_select.room1_tv_channels
     - script.room1_tv_vol_up

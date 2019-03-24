@@ -16,9 +16,7 @@
     - temperature
     - humidity
 
-- platform: hue
-  ip_address: 192.168.1.59
-  token: !secret hue_token
+- platform: huesensor
 
 - platform: command_line
   name: CPU Temperature
