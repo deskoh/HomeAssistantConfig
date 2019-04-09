@@ -98,7 +98,7 @@ elif switch_state == '2_click_up' or switch_state == '3_click_up' or switch_stat
             hass.services.call('input_number', 'set_value',
                                service_data, False)
             tts(hass, speaker, speed)
-        elif switch_state == '2_hold':
+        elif switch_state == '2_hold_up':
             # Fan oscillating control
             swing_angle = hass.states.get(fan_swing).state
             service_data = {'entity_id': fan_swing}
@@ -113,7 +113,7 @@ elif switch_state == '2_click_up' or switch_state == '3_click_up' or switch_stat
                 'input_select', 'select_option', service_data, False)
             service_data = {'entity_id': speaker, 'message': message}
             hass.services.call('tts', 'google_say', service_data, False)
-        elif switch_state == '3_hold':
+        elif switch_state == '3_hold_up':
             # Fan natural mode control
             natural_mode = hass.states.get(fan_natural).state
             if natural_mode == 'on':
