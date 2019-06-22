@@ -27,7 +27,7 @@ wake_up_lights:
       media_content_id: !secret alarm_media_url
       media_content_type: audio/ogg
   - service: fan.turn_off
-    data:
+    data_template:
       entity_id: '{{ fan }}'
 good_morning:
   alias: Good Morning
@@ -145,15 +145,15 @@ good_night:
   alias: 7 minute workout
   sequence:
   - service: media_player.play_media
-    data:
+    data_template:
       entity_id: media_player.room1_speaker
-      media_content_id: !secret media_url
+      media_content_id: '{{ states("sensor.workout_media_url") }}'
       media_content_type: audio/mp3
 'room2_7min_workout':
   alias: 7 minute workout
   sequence:
   - service: media_player.play_media
-    data:
+    data_template:
       entity_id: media_player.room2_speaker
-      media_content_id: !secret media_url
+      media_content_id: '{{ states("sensor.workout_media_url") }}'
       media_content_type: audio/mp3

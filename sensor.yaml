@@ -25,3 +25,11 @@
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
   scan_interval: 200
+
+# Dummy sensor to allow secrets in template
+- platform: template
+  sensors:
+    workout_media_url:
+      value_template: !secret workout_media_url
+    clock_media_baseurl:
+      value_template: !secret clock_media_baseurl

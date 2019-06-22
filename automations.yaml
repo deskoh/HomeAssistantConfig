@@ -1,0 +1,465 @@
+- id: letsencrypt-renewal
+  alias: Let's Encrypt Renewal
+  hide_entity: true
+  trigger:
+  - platform: time
+    at: 00:00:00
+  action:
+  - service: hassio.addon_restart
+    data:
+      addon: core_letsencrypt
+
+- id: zigbee_join
+  alias: Enable Zigbee joining
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.zigbee_permit_join
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: zigbee2mqtt/bridge/config/permit_join
+      payload: >
+        {% if is_state('input_boolean.zigbee_permit_join', 'on') %}
+          true
+        {% else %}
+          false
+        {% endif %}
+
+- id: ifttt_call_service
+  alias: IFTTT Call Service
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: call_service
+  action:
+    service_template: '{{ trigger.event.data.service }}'
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+
+- id: ifttt_select_option
+  alias: IFTTT Select Option
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: select_option
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+      option: '{{ trigger.event.data.option }}'
+
+- id: ifttt_tts
+  alias: IFTTT TTS
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: tts
+  action:
+    service: tts.google_say
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+      message: '{{ trigger.event.data.message }}'
+      cache: '{{ trigger.event.data.cache }}'
+
+- id: ifttt_blink
+  alias: IFTTT Blink Light
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: blink
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: '{{ trigger.event.data.entity_id }}'
+      flash: '{{ trigger.event.data.flash }}'
+
+- id: sunrise_routine
+  alias: Sunrise Routine
+  trigger:
+  - platform: sun
+    event: sunrise
+  condition: []
+  action:
+  - service: automation.turn_off
+    data:
+      entity_id: automation.room_1_motion_detection
+  - service: automation.turn_off
+    data:
+      entity_id: automation.room_2_motion_detection
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.room_1_status
+      option: Awake
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.room_2_status
+      option: Awake
+
+- id: sunset_routine
+  alias: Sunset Routine
+  trigger:
+  - platform: sun
+    event: sunset
+  condition: []
+  action:
+  - service: automation.turn_on
+    data:
+      entity_id: automation.room_1_motion_detection
+  - service: automation.turn_on
+    data:
+      entity_id: automation.room_2_motion_detection
+
+- id: bedtime_routine
+  alias: Bedtime Routine
+  trigger:
+  - platform: time
+    at: '23:00:00'
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.room_1_status
+      option: Sleeping
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.room_2_status
+      option: Sleeping
+
+- id: room1_wakeup_lights
+  alias: Room 1 Wakeup Lights
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == (states.input_datetime.room1_wakeup_time.attributes.timestamp
+      | int | timestamp_custom(''%H:%M'', False)) }}'
+  condition: []
+  action:
+  - service: script.wake_up_lights
+    data:
+      input_status: input_select.room_1_status
+      light_entity: light.room_1_lights
+      wakeup_dismiss: input_boolean.room1_wakeup_dismiss
+      wakeup_duration: input_number.room1_wakeup_duration
+      wakeup_enabled: input_boolean.room1_wakeup_enabled
+      wakeup_weekend: input_boolean.room1_wakeup_weekend
+      speaker: media_player.room1_speaker
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.room1_wakeup_dismiss
+
+- id: room2_wakeup_lights
+  alias: Room 2 Wakeup Lights
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.time'') == (states.input_datetime.room2_wakeup_time.attributes.timestamp
+      | int | timestamp_custom(''%H:%M'', False)) }}'
+  condition: []
+  action:
+  - service: script.wake_up_lights
+    data:
+      light_entity: light.room_2_lights
+      wakeup_dismiss: input_boolean.room2_wakeup_dismiss
+      wakeup_duration: input_number.room2_wakeup_duration
+      wakeup_enabled: input_boolean.room2_wakeup_enabled
+      wakeup_weekend: input_boolean.room2_wakeup_weekend
+      speaker: media_player.room2_speaker
+      input_status: input_select.room_2_status
+      fan: fan.xiaomi_fan
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.room2_wakeup_dismiss
+
+- id: room_1_switch
+  alias: Room 1 Switch
+  hide_entity: true
+  trigger:
+  - entity_id: sensor.bedroom_1_switch
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{ (trigger.to_state.last_updated != trigger.from_state.last_updated)
+      and (trigger.to_state.battery == trigger.from_state.battery)  }}'
+  action:
+  - service: python_script.switch
+    data:
+      switch_entity: sensor.bedroom_1_switch
+      light_group: group.room1_card
+      input_select_scene: input_select.room_1_scene
+      input_alarm: input_boolean.room1_wakeup_dismiss
+      speaker: media_player.room1_speaker
+
+- id: room_1_button
+  alias: Room 1 Button
+  hide_entity: true
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/room1_button'
+  action:
+    service: python_script.button
+    data_template:
+      button: "{{ trigger.topic.split('/')[-1] }}"
+      click: '{{ trigger.payload_json.click }}'
+
+- id: room_2_switch
+  alias: Room 2 Switch
+  hide_entity: true
+  trigger:
+  - entity_id: sensor.bedroom_2_switch
+    platform: state
+  condition:
+  - condition: template
+    value_template: '{{ (trigger.to_state.last_updated != trigger.from_state.last_updated)
+      and (trigger.to_state.battery == trigger.from_state.battery) }}'
+  action:
+  - service: python_script.switch
+    data:
+      switch_entity: sensor.bedroom_2_switch
+      light_group: group.room2_card
+      input_select_scene: input_select.room_2_scene
+      input_alarm: input_boolean.room2_wakeup_dismiss
+      fan_inputs:
+        - fan.xiaomi_fan
+        - input_number.room2_fan_speed 
+        - input_select.room2_fan_swing_angle
+        - input_boolean.room2_fan_natural_mode
+      speaker: media_player.room2_speaker
+
+- id: room_2_button_1
+  alias: Room 2 Button 1
+  hide_entity: true
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/room2_button1'
+  action:
+    service: python_script.button
+    data_template:
+      button: "{{ trigger.topic.split('/')[-1] }}"
+      click: '{{ trigger.payload_json.click }}'
+
+- id: room_2_button_2
+  alias: Room 2 Button 2
+  hide_entity: true
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/room2_button2'
+  action:
+    service: python_script.button
+    data_template:
+      button: "{{ trigger.topic.split('/')[-1] }}"
+      click: '{{ trigger.payload_json.click }}'
+
+- id: room_1_switch_good_morning
+  alias: Room 1 Switch Good Morning
+  trigger:
+  - entity_id: sensor.bedroom_1_switch
+    platform: state
+  condition:
+  - condition: state
+    entity_id: input_select.room_1_status
+    state: Sleeping
+  - condition: sun
+    after: sunrise
+    after_offset: -02:00:00
+  - condition: sun
+    before: sunset
+  - condition: template
+    value_template: '{{ (trigger.to_state.state == "1_click_up") and (trigger.to_state.last_updated != trigger.from_state.last_updated)
+      and (trigger.to_state.battery == trigger.from_state.battery)  }}'
+  action:
+  - service: script.room1_good_morning
+    data:
+      tts_prefix: I see you have worken up!
+
+- id: room_2_switch_good_morning
+  alias: Room 2 Switch Good Morning
+  trigger:
+  - entity_id: sensor.bedroom_2_switch
+    platform: state
+  condition:
+  - condition: state
+    entity_id: input_select.room_2_status
+    state: Sleeping
+  - condition: sun
+    after_offset: -02:00:00
+    after: sunrise
+  - condition: sun
+    before: sunset
+  - condition: template
+    value_template: '{{ (trigger.to_state.state == "1_click_up") and (trigger.to_state.last_updated != trigger.from_state.last_updated)
+      and (trigger.to_state.battery == trigger.from_state.battery)  }}'
+  action:
+  - service: script.room2_good_morning
+    data:
+      tts_prefix: I see you have worken up!
+
+- id: cuckoo_clock
+  alias: Cuckoo Clock
+  trigger:
+    - platform: time_pattern
+      minutes: 00
+      seconds: 00
+    - platform: time_pattern
+      minutes: 30
+      seconds: 00
+  condition:
+  - condition: time
+    after: '07:59:00'
+    before: '21:59:00'
+  - condition: state
+    entity_id: device_tracker.deskoh
+    state: 'home'
+  - condition: state
+    entity_id: input_select.room_1_status
+    state: 'Awake'
+  - condition: template
+    value_template: >
+      {% if is_state('media_player.room1_speaker', 'playing') %}
+        false
+      {% else %}
+        true
+      {% endif %}
+  action:
+    - service: media_player.play_media
+      data_template:
+        entity_id: media_player.room1_speaker
+        media_content_id: >
+          {% if now().strftime("%M")|int == 30 %}
+          {{ states("sensor.clock_media_baseurl") }}-01.wav
+          {% else %}
+          {{ states("sensor.clock_media_baseurl") }}-{{ now().strftime("%I") }}.wav
+          {% endif %}
+        media_content_type: audio/mp4
+
+- id: room2_fan_inputs
+  alias: Room 2 Fan Inputs
+  trigger:
+  - platform: state
+    entity_id: input_number.room2_fan_speed
+  - platform: state
+    entity_id: input_select.room2_fan_swing_angle
+  - platform: state
+    entity_id: input_boolean.room2_fan_natural_mode
+  action:
+  - service: python_script.xiaomi_fan_control
+    data_template:
+      fan: 'fan.xiaomi_fan'
+      input_id: '{{ trigger.entity_id }}'
+      state: '{{ trigger.to_state.state }}'
+      speed_input: 'input_number.room2_fan_speed'
+
+- id: room1_motion_lights
+  alias: Room 1 Motion Detection
+  initial_state: False
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.mi1_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.room_1_lights
+    state: 'off'
+  - condition: state
+    entity_id: light.floor_light
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data_template:
+      entity_id:  >
+        {% if is_state('input_select.room_1_status', 'Awake') %}
+          light.lightstrip
+        {% else %}
+          light.floor_light
+        {% endif %}
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      brightness: >
+        {% if is_state('input_select.room_1_status', 'Awake') %}
+          200
+        {% else %}
+          10
+        {% endif %}
+  # reset scene
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.room_1_scene
+      option: 'scene.room_1_white'
+  - wait_template: '{{ is_state(''binary_sensor.mi1_motion'', ''off'') }}'
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.room_1_status
+      state: 'Sleeping'
+    - condition: time
+      after: '22:00:00'
+      before: '07:30:00'
+    - condition: state
+      entity_id: device_tracker.deskoh
+      state: 'not_home'
+  - service: light.turn_off
+    data_template:
+      entity_id:  >
+        {% if is_state('input_select.room_1_status', 'Awake') %}
+          light.lightstrip
+        {% else %}
+          light.floor_light
+        {% endif %}
+
+- id: room2_motion_lights
+  alias: Room 2 Motion Detection
+  initial_state: False
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.mi2_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: light.room_2_lights
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data_template:
+      entity_id: light.lamp_4
+      brightness: >
+        {% if is_state('input_select.room_2_status', 'Awake') %}
+          200
+        {% else %}
+          10
+        {% endif %}
+  # reset scene
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.room_2_scene
+      option: 'scene.room_2_on'
+  - wait_template: "{{ is_state('binary_sensor.mi2_motion', 'off') or is_state('light.light.lamp_4', 'off') }}"
+  - condition: state
+    entity_id: light.lamp_4
+    state: 'on'
+  - service: light.turn_off
+    data:
+      entity_id: light.lamp_4
+  # If room is awake, check for motion trigger within 5 seconds
+  - condition: state
+    entity_id: input_select.room_2_status
+    state: 'Awake'
+  - wait_template: "{{ is_state('binary_sensor.mi2_motion', 'on') }}"
+    timeout: '00:00:05'
+    continue_on_timeout: 'false'
+  # Turn on lights persistently
+  - service: light.turn_on
+    data:
+      entity_id: light.lamp_4
+      brightness: 200
+  - service: logbook.log
+    data:
+      name: Motion
+      message: Room 2 persistent lights triggered
