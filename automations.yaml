@@ -463,3 +463,33 @@
     data:
       name: Motion
       message: Room 2 persistent lights triggered
+
+- id: evening_lights
+  alias: Evening Lights
+  initial_state: True
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.maindoor
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: device_tracker.deskoh
+    state: 'not_home'
+  - condition: state
+    entity_id: device_tracker.deskoh_ipad
+    state: 'not_home'
+  - condition: sun
+    after: sunset
+  - condition: time
+    before: '23:00:00'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.lamp_4
+      brightness: 200
+  - wait_template: "{{ is_state('binary_sensor.mi2_motion', 'on') }}"
+    timeout: '00:00:30'
+  - wait_template: "{{ is_state('binary_sensor.mi2_motion', 'off') }}"
+  - service: light.turn_off
+    data:
+      entity_id: light.lamp_4

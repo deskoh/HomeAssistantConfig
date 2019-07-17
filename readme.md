@@ -23,6 +23,7 @@
 | Room 1 TV Channels   | UI Components | Trigger TV Channel change using RM Mini 3 based on UI Components inputs |
 | Room 1 Motion Lights | Motion Sensor | Trigger lights if motion is detected. |
 | Room 2 Motion Lights | Motion Sensor | Similar to _Room 1 Motion Lights_ but for Room 2. |
+| Evening Lights | Contact Sensor | Turn on Room 2 lights until no motion detected. |
 
 ### Utility Automations
 
@@ -50,6 +51,7 @@
 
 * Xiaomi BLE Temperature and Humidity Sensor LYWSDCGQ/01ZM
 * [Xiaomi Roborock S5](en.roborock.com)
+* Xiaomi Door & Window Contact Sensor MCCGQ01LM
 
 ### Room 1
 
