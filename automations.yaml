@@ -474,14 +474,15 @@
   condition:
   - condition: state
     entity_id: device_tracker.deskoh
-    state: 'not_home'
-  - condition: state
-    entity_id: device_tracker.deskoh_ipad
-    state: 'not_home'
+    state: not_home
   - condition: sun
     after: sunset
   - condition: time
+    after: '18:00:00'
     before: '23:00:00'
+  - condition: state
+    entity_id: input_select.room_1_status
+    state: 'Awake'
   action:
   - service: light.turn_on
     data:
