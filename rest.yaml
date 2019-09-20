@@ -1,0 +1,8 @@
+sgpsi:
+  url: https://sgpsi.herokuapp.com/reading
+  method: POST
+  headers:
+    authorization: !secret sgpsi_secret
+  payload: '{"value": {{ value }} }'
+  content_type:  'application/json; charset=utf-8'
+  verify_ssl: true

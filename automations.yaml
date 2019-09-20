@@ -304,11 +304,10 @@
   alias: Cuckoo Clock
   trigger:
     - platform: time_pattern
-      minutes: 00
-      seconds: 00
+      hours: '*'
+      minutes: '0'
     - platform: time_pattern
-      minutes: 30
-      seconds: 00
+      minutes: '30'
   condition:
   - condition: time
     after: '07:59:00'
@@ -494,3 +493,18 @@
   - service: light.turn_off
     data:
       entity_id: light.lamp_4
+
+- id: sgpsi
+  alias: SG PSI
+  initial_state: False
+  trigger:
+    - platform: time_pattern
+      minutes: '/1'
+      seconds: '0'
+  condition:
+  - condition: template
+    value_template: '{{ not is_state("sensor.air_quality_monitor", "unavailable") }}'
+  action:
+    - service: rest_command.sgpsi
+      data_template:
+        value: '{{ states("sensor.air_quality_monitor") | int }}'
