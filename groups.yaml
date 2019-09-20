@@ -12,6 +12,7 @@ default_view:
     - group.links_card
     - sensor.living_room_temperature
     - sensor.living_room_humidity
+    - sensor.air_quality_monitor
     - binary_sensor.maindoor
     - device_tracker.deskoh
     - device_tracker.lgh
