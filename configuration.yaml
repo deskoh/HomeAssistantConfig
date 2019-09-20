@@ -92,8 +92,12 @@ history:
       - script
       - group
     entities:
+      - input_select.room1_tv_channels
       - sensor.cpu_temperature
       - fan.xiaomi_fan
+      # Dummy sensors
+      - sensor.clock_media_baseurl
+      - sensor.workout_media_url
 
 # View all events in a logbook
 logbook:
