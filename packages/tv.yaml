@@ -14,13 +14,15 @@ switch:
         friendly_name: Samsung TV
         value_template: "{{ is_state('device_tracker.room1_tv', 'home') }}"
         turn_on:
-          service: switch.broadlink_send_packet_192_168_1_112
+          service: broadlink.send
           data:
+            host: 192.168.1.112
             packet:
               - "JgBGAJWVEzcTNxM3ExMSExITEhMSExI4EjgSOBMSExITEhMSExITEhM3ExMSExI4EhMSExITEjgTEhM3EzcTEhM3EzgSOBIADQUAAA=="
         turn_off:
-          service: switch.broadlink_send_packet_192_168_1_112
+          service: broadlink.send
           data:
+            host: 192.168.1.112
             packet:
               - "JgBGAJaUEzgSOBI4ExITEhMSExITEhM4EjgSOBITExITEhMSExITEhM4EhMSExITEhMSExMSEzcTEhM3EzgSOBI4EzcTNxMADQUAAA=="
 
@@ -40,22 +42,25 @@ script:
   'room1_tv_source':
     alias: Select Source
     sequence:
-      - service: switch.broadlink_send_packet_192_168_1_112
+      - service: broadlink.send
         data:
+          host: 192.168.1.112
           packet:
             - "JgBGAJOXETkROhA6EBUQFRAVEBUQFRA6EDoROREUERUQFRAVEBUQOhAVEBUQFRAVEBUQFREUERQRORE6EDoQOhA6EDoQOhEADQUAAA=="
   'room1_tv_vol_up':
     alias: Volume Up
     sequence:
-      - service: switch.broadlink_send_packet_192_168_1_112
+      - service: broadlink.send
         data:
+          host: 192.168.1.112
           packet:
             - "JgBGAJOXETkROhA6EBUQFRAVEBUQFRA6EDoROREUERUQFRAVEBUQOhA6EDoQFRAVEBURFBITEhMSExEVEjgSOBI4EjgSOBIADQUAAA=="
   'room1_tv_vol_down':
     alias: Volume Down
     sequence:
-      - service: switch.broadlink_send_packet_192_168_1_112
+      - service: broadlink.send
         data:
+          host: 192.168.1.112
           packet:
             - "JgCMAJSWEjgSORE5ERQRFBEUERQRFBE5ETkSOBITEhMSFBEUERQQOhE5ERQQOhEUEBURFBEUERQRFBE5ERUQOhA6EDoQOhAABg=="
 
@@ -69,8 +74,9 @@ automation:
     - condition: template
       value_template: "{{ not is_state('input_select.room1_tv_channels', 'Select Channel') }}"
     action:
-    - service: switch.broadlink_send_packet_192_168_1_112
+    - service: broadlink.send
       data_template:
+        host: 192.168.1.112
         packet: >
           {% if trigger.to_state.state == 'Channel 5' %}
             JgBGAJSVEzgSOBM3ExISExIUEhMRFBI4EjgSOBITEhMSExITExITNxMTEjgSExEUEhMSExEUERQRORITEjgSOBI4EjkRORIADQUAAA==
@@ -85,8 +91,9 @@ automation:
           {% endif %}
     - delay:
         milliseconds: 200 
-    - service: switch.broadlink_send_packet_192_168_1_112
+    - service: broadlink.send
       data:
+        host: 192.168.1.112
         packet: JgBGAJaUEzgSOBI4ExITEhMSExITEhM3EzgSOBITEhMSExITExITEhMSExITNxMTEjgSOBITEjgTNxM3ExITNxMTEhMSOBIADQUAAA==
     - service: input_select.select_option
       data:

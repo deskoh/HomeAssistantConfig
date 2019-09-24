@@ -122,7 +122,8 @@ sun:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
   # - platform: microsoft
   #   api_key: !secret microsoft_tts_key
 
@@ -173,6 +174,7 @@ scene: !include scene.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 light: !include light.yaml
+yeelight: !include yeelight.yaml
 sensor: !include sensor.yaml
 rest_command: !include rest.yaml
 

@@ -2,6 +2,7 @@ vacuum:
   - platform: xiaomi_miio
     host: 192.168.1.247
     token: !secret mi_vacuum_token
+    scan_interval: 30
     name: Xiaomi Roborock
 
 group:
