@@ -12,6 +12,12 @@
       state: on
       color_temp: 153
       brightness: 255
+    light.nanoleaf1:
+      state: on
+      color_name: 'white'
+      brightness: 200
+    light.floor_light:
+      state: off
 - name: Room 1 TV
   entities:
     light.lamp_1:
@@ -26,6 +32,10 @@
       state: on
       color_temp: 153
       brightness: 100
+    light.nanoleaf1:
+      state: on
+      color_name: 'white'
+      brightness: 100
     light.floor_light:
       state: off
 - name: Room 1 Color Loop
@@ -36,6 +46,10 @@
     light.lamp_2:
       state: on
       effect: colorloop
+    light.nanoleaf1:
+      state: on
+      effect: 'Color Burst'
+      brightness: 50
     light.lightstrip:
       state: on
       effect: Slowdown
@@ -52,6 +66,10 @@
       state: on
       rgb_color: [87, 0, 255]
       brightness: 144
+    light.nanoleaf1:
+      state: on
+      effect: 'Northern Lights'
+      brightness: 50
     light.lightstrip:
       state: on
       rgb_color: [135, 90, 255]
@@ -70,6 +88,10 @@
       state: on
       rgb_color: [255, 202, 255]
       brightness: 217
+    light.nanoleaf1:
+      state: on
+      rgb_color: [255, 167, 135]
+      brightness: 50
     light.lightstrip:
       state: on
       rgb_color: [255, 185, 177]
@@ -88,6 +110,10 @@
       state: on
       rgb_color: [200, 164, 255]
       brightness: 114
+    light.nanoleaf1:
+      state: on
+      rgb_color: [255, 161, 78]
+      brightness: 50
     light.lightstrip:
       state: on
       rgb_color: [228, 162, 167]

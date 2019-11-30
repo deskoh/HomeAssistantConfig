@@ -34,6 +34,7 @@
 | Enable Zigbee joining | Enable new Zigbee devices to join
 
 ## Scripts
+
 | Name                 | Trigger  | Description   |
 |----------------------|----------|---------------|
 | Blink Light          | Android (Tasker)  | Blink lights if message received on phone. |
@@ -57,6 +58,7 @@
 ### Room 1
 
 * 2 x Philips Hue Color Lamp LCT007
+* Nanoleaf Light Panels
 * Yeelight LED Light Strip YLDD02YL
 * Yeelight LED Light Strip YLDD04YL with Extension
 * Philips Hue Dimmer Switch RWL020

@@ -77,6 +77,7 @@ room1_card:
     - light.lamp_1
     - light.lamp_2
     - light.floor_light
+    - light.nanoleaf1
     - light.lightstrip
     - automation.room_1_motion_detection
 
