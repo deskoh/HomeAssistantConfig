@@ -12,6 +12,20 @@
       state: on
       color_temp: 153
       brightness: 255
+- name: Room 1 TV
+  entities:
+    light.lamp_1:
+      state: on
+      color_temp: 153
+      brightness: 100
+    light.lamp_2:
+      state: on
+      color_temp: 153
+      brightness: 100
+    light.lightstrip:
+      state: on
+      color_temp: 153
+      brightness: 100
     light.floor_light:
       state: off
 - name: Room 1 Color Loop

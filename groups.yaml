@@ -89,6 +89,7 @@ room1_tv_card:
     - script.room1_tv_vol_up
     - script.room1_tv_vol_down
     - script.room1_tv_source
+    - automation.tv_lights_automation
 
 room1_scene_card:
   name: Scenes

@@ -95,6 +95,9 @@
   - service: automation.turn_off
     data:
       entity_id: automation.room_2_motion_detection
+  - service: automation.turn_off
+    data:
+      entity_id: automation.tv_lights
   - service: input_select.select_option
     data:
       entity_id: input_select.room_1_status
@@ -117,6 +120,9 @@
   - service: automation.turn_on
     data:
       entity_id: automation.room_2_motion_detection
+  - service: automation.turn_on
+    data:
+      entity_id: automation.tv_lights
 
 - id: bedtime_routine
   alias: Bedtime Routine
@@ -494,9 +500,24 @@
     data:
       entity_id: light.lamp_4
 
+- id: tv_lights_automation
+  alias: TV Lights Automation
+  trigger:
+  - platform: state
+    entity_id: device_tracker.room1_tv
+    to: home
+  condition:
+  - condition: state
+    entity_id: light.lamp_2
+    state: 'off'
+  action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.room_1_tv
+
 - id: sgpsi
   alias: SG PSI
-  initial_state: False
+  initial_state: True
   trigger:
     - platform: time_pattern
       minutes: '/1'

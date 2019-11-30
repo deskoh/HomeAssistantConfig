@@ -6,8 +6,8 @@
 
 | Name                 | Trigger  | Description   |
 |----------------------|----------|---------------|
-| Sunrise Routine      | Sunrise  | Disable motion detection automations and sets room status to _Awake_ |
-| Sunset Routine       | Sunset   | Enable motion detection automations |
+| Sunrise Routine      | Sunrise  | Disable motion detection, TV Lights automations and sets room status to _Awake_ |
+| Sunset Routine       | Sunset   | Enable motion detection automations and TV Lights automation. |
 | Bedtime Routine      | 23:00    | Sets room status to _Sleeping_ |
 | Room 1 Wakeup Lights | Template | Trigger wake-up lights script and turn off _Dismiss Next Wake-up_ input boolean.
 | Room 2 Wakeup Lights | Template | Same as _Room 1 Wakeup Lights_ but for Room 2.|
@@ -24,6 +24,7 @@
 | Room 1 Motion Lights | Motion Sensor | Trigger lights if motion is detected. |
 | Room 2 Motion Lights | Motion Sensor | Similar to _Room 1 Motion Lights_ but for Room 2. |
 | Evening Lights | Contact Sensor | Turn on Room 2 lights until no motion detected. |
+| TV Lights | TV On | Turn on TV Scene if lights 2 is off. |
 
 ### Utility Automations
 
