@@ -97,7 +97,7 @@
       entity_id: automation.room_2_motion_detection
   - service: automation.turn_off
     data:
-      entity_id: automation.tv_lights
+      entity_id: automation.tv_lights_automation
   - service: input_select.select_option
     data:
       entity_id: input_select.room_1_status
@@ -122,7 +122,7 @@
       entity_id: automation.room_2_motion_detection
   - service: automation.turn_on
     data:
-      entity_id: automation.tv_lights
+      entity_id: automation.tv_lights_automation
 
 - id: bedtime_routine
   alias: Bedtime Routine
