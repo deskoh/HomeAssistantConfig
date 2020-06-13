@@ -2,3 +2,4 @@
 secrets.yaml
 known_devices.yaml
 www/images
+google_service_account.yml

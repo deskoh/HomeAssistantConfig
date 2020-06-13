@@ -163,6 +163,6 @@
     fan.xiaomi_fan:
       state: on
     input_number.room2_fan_speed:
-      state: 75
+      state: "75"
     input_boolean.room2_fan_natural_mode:
       state: false

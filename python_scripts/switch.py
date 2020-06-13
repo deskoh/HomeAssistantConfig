@@ -18,7 +18,7 @@
 switch_entity = data.get('switch_entity', 'sensor.bedroom_1_switch')
 input_scene = data.get('input_select_scene', 'input_select.room_1_scene')
 input_alarm = data.get('input_alarm', 'input_boolean.room1_wakeup_dismiss')
-light_group = data.get('light_group', 'group.room1_card')
+light_group = data.get('light_group', 'group.room_1_lights')
 fan_inputs = data.get('fan_inputs')
 speaker = data.get('speaker', 'media_player.room1_speaker')
 
@@ -44,18 +44,12 @@ if fan_inputs is not None:
 else:
     has_fan = False
 
-light_group_states = hass.states.get(light_group)
-light_group_attr = light_group_states.attributes.copy()
-lights = light_group_attr['entity_id']
-
-# assuming first element is all lights entity e.g. light.room_1_lights
-all_lights_entity = lights[0]
-light_states = hass.states.get(all_lights_entity)
+light_states = hass.states.get(light_group)
 switch_state = hass.states.get(switch_entity).state
 
 if switch_state == '1_click_up':
     if light_states.state == 'off':
-        turn_on(hass, 'light', all_lights_entity)
+        turn_on(hass, 'light', light_group)
     elif light_states.state == 'on':
         scene = hass.states.get(input_scene).state
         turn_on(hass, 'scene', scene)
@@ -63,7 +57,7 @@ if switch_state == '1_click_up':
         service_data = {'entity_id': input_scene}
         hass.services.call('input_select', 'select_next', service_data, False)
 elif switch_state == '1_hold_up':
-    service_data = {'entity_id': all_lights_entity, 'brightness': 255}
+    service_data = {'entity_id': light_group, 'brightness': 255}
     hass.services.call('light', 'turn_on', service_data, False)
 
     scene_states = hass.states.get(input_scene)
@@ -126,16 +120,21 @@ elif switch_state == '2_click_up' or switch_state == '3_click_up' or switch_stat
         # Lights dimming control
         change = 25 if (
             switch_state == '2_click_up' or switch_state == '2_hold') else -25
-        for l in lights[1:]:
-            # logger.error('Changing brightness for ' + l)
-            l_states = hass.states.get(l)
-            if l_states.state == 'on':
-                attr = l_states.attributes.copy()
-                brightness = attr['brightness'] + change
-                if brightness > 255:
-                    brightness = 255
-                if brightness < 0:
-                    brightness = 0
+        if light_states.state == 'on':
+            light_group_attr = light_states.attributes.copy()
+            lights = light_group_attr['entity_id']
+            for l in lights[0:]:
+                # To handle case when light is off
+                brightness = 25
+                l_states = hass.states.get(l)
+                if l_states.state == 'on':
+                    attr = l_states.attributes.copy()
+                    brightness = attr['brightness'] + change
+                    if brightness > 255:
+                        brightness = 255
+                    if brightness < 0:
+                        brightness = 0
+                # logger.warn('Changing brightness for ' + l + ' to ' + str(brightness))
                 service_data = {
                     'entity_id': l,
                     'brightness': brightness
@@ -143,7 +142,7 @@ elif switch_state == '2_click_up' or switch_state == '3_click_up' or switch_stat
                 hass.services.call('light', 'turn_on', service_data, False)
 elif switch_state == '4_click_up':
     if light_states.state == 'on':
-        turn_off(hass, 'light', all_lights_entity)
+        turn_off(hass, 'light', light_group)
     else:
         now = datetime.datetime.now()
         # message = 'The time now is {:%H:%M %p}'.format(now)

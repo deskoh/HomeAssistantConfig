@@ -18,12 +18,3 @@ switch:
         friendly_name: Oscillation
         command_on: JgBIAAABKJQTEhMSFBITEhMSEzcSFBMSEzcSOBQ3EzcUNxMSEzcUNxMSExIUERQSEzcTEhQRFBEUNxM3FDcTNxMSEzgTNxM4EwANBQ==
         command_off: JgBIAAABKJQTExITEhQSExISEzcTExIUEjcTOBI4EzgSOBIUETkQOhEVEBUQOhEVEDkRFg8WERQROBI5EhQROBIUEjgTNxM4EwANBQ==
-
-group:
-  room1_fan_card:
-    name: Fan
-    control: hidden
-    entities:
-      - switch.novita_fan
-      - switch.novita_fan_speed
-      - switch.novita_fan_osc

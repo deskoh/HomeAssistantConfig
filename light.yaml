@@ -1,17 +1,3 @@
-- platform: group
-  name: Room 1 Lights
-  entities:
-    - light.lamp_1
-    - light.lamp_2
-    - light.lightstrip
-    - light.nanoleaf1
-    #- light.floor_light
-- platform: group
-  name: Room 2 Lights
-  entities:
-    - light.lamp_3
-    - light.lamp_4
-
 - platform: nanoleaf
   name: Nanoleaf1
   host: 192.168.1.213

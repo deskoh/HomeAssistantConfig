@@ -6,16 +6,6 @@ fan:
     model: zhimi.fan.sa1
     scan_interval: 60
 
-group:
-  room2_fan_card:
-    name: Fan
-    control: hidden
-    entities:
-      - fan.xiaomi_fan
-      - input_number.room2_fan_speed
-      - input_select.room2_fan_swing_angle
-      - input_boolean.room2_fan_natural_mode
-
 input_number:
   room2_fan_speed:
     name: Speed

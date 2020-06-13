@@ -4,8 +4,6 @@ light.bedroom_1:
   hidden: true
 light.bedroom_2:
   hidden: true
-light.custom_group_for_lights:
-  hidden: true
 light.entertainment_area_1:
   hidden: true
 light.lamp_1:
@@ -30,16 +28,6 @@ sensor.date_time:
   hidden: true
 sensor.time:
   hidden: true
-group.all_automations:
-  friendly_name: Automations
-  hidden: false
-  control: hidden
-group.all_scripts:
-  friendly_name: Scripts
-  hidden: false
-media_player.bed_room_ua32h4303:
-  friendly_name: Room 1 TV
-  icon: mdi:television-classic
 media_player.room1_speaker:
   friendly_name: Room 1 Speaker
   icon: mdi:speaker

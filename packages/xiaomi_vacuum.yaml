@@ -5,15 +5,6 @@ vacuum:
     scan_interval: 30
     name: Xiaomi Roborock
 
-group:
-  vacuum_card:
-    name: Vacuum
-    control: hidden
-    entities:
-      - vacuum.xiaomi_roborock
-      - sensor.vacuum_status
-      - input_select.vacuum_room
-
 input_select:
   vacuum_room:
     name: Choose a room to clean
