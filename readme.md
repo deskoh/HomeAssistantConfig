@@ -65,6 +65,7 @@
 * Xiaomi Motion Sensor RTCGQ11LM
 * Xiaomi Temperature and Humidity Sensor WSDCGQ11LM
 * Xiaomi Wireless Switch WXKG01LM
+* Xiaomi Wireless Switch WXCJKG13LM
 * Broadlink RM Mini 3
 * Google Home Mini
 

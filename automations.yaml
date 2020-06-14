@@ -177,7 +177,7 @@
     data:
       entity_id: input_boolean.room2_wakeup_dismiss
 
-- id: room_1_switch
+- id: room_1_hue_switch
   alias: Room 1 Switch
   trigger:
   - entity_id: sensor.bedroom_1_switch
@@ -187,9 +187,23 @@
     value_template: '{{ (trigger.to_state.last_updated != trigger.from_state.last_updated)
       and (trigger.to_state.battery == trigger.from_state.battery)  }}'
   action:
-  - service: python_script.switch
+  - service: python_script.hue_switch
     data:
       switch_entity: sensor.bedroom_1_switch
+      light_group: group.room_1_lights
+      input_select_scene: input_select.room_1_scene
+      input_alarm: input_boolean.room1_wakeup_dismiss
+      speaker: media_player.room1_speaker
+
+- id: room_1_mi_switch
+  alias: Room 1 Mi Switch
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/room1_mi_switch1/action'
+  action:
+  - service: python_script.room1_mi_switch
+    data_template:
+      action: '{{ trigger.payload }}'
       light_group: group.room_1_lights
       input_select_scene: input_select.room_1_scene
       input_alarm: input_boolean.room1_wakeup_dismiss
@@ -206,7 +220,7 @@
       button: "{{ trigger.topic.split('/')[-1] }}"
       click: '{{ trigger.payload_json.click }}'
 
-- id: room_2_switch
+- id: room_2_hue_switch
   alias: Room 2 Switch
   trigger:
   - entity_id: sensor.bedroom_2_switch
@@ -468,7 +482,7 @@
   initial_state: True
   trigger:
   - platform: state
-    entity_id: binary_sensor.maindoor
+    entity_id: binary_sensor.main_door
     to: 'on'
   condition:
   - condition: state
