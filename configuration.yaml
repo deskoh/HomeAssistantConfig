@@ -10,6 +10,7 @@ homeassistant:
   unit_system: metric
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Asia/Singapore
+  external_url: !secret external_url
   packages: !include_dir_named packages
   # Customization file
   customize: !include customize.yaml
@@ -123,6 +124,7 @@ sun:
 tts:
   - platform: google_translate
     service_name: google_say
+    base_url: !secret external_url
   # - platform: microsoft
   #   api_key: !secret microsoft_tts_key
 
