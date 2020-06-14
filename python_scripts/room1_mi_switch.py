@@ -3,15 +3,16 @@
 # Button Pair 1:
 # - Single-Click: Turn off/on lights. Cycle lights if already on.
 # - Double-Click: Cycle room scenes
-# - Triple/Click: Set lights to max brightness and reset next scene cycle (so that double click selects 1st scene)
+# - Triple-Click: Turn on all lights
+# - Hold: Set lights to max brightness and reset next scene cycle (so that double click selects 1st scene)
 # Button Pair 2:
-# - Single-Click: Toggle TV
-# - Double-Click: Cycle channels
-# Button Pair 3:
 # - Single-Click: Toggle Fan
 # - Double-Click: Cycle fan speed
-# - Triple-Click: Turn off/on next alarm
-# - Hold: Turn on/off alarm
+# Button Pair 3:
+# - Single-Click: Toggle TV
+# - Double-Click: Cycle channels
+# - Triple-Click: Turn on/off alarm
+# - Hold: Turn off/on next alarm
 ###############################################################################
 
 # Script Parameters
@@ -62,12 +63,21 @@ elif action == 'button_2_single':
             if l == light: turn_on(hass, 'light', l)
             else: turn_off(hass, 'light', l)
 elif action == 'button_1_double' or action == 'button_2_double':
+    # Cycle room scenes
     scene = hass.states.get(input_scene).state
     turn_on(hass, 'scene', scene)
 
     service_data = {'entity_id': input_scene}
     hass.services.call('input_select', 'select_next', service_data, False)
-elif action == 'button_1_triple' or action == 'button_2_triple':
+elif action == 'button_2_triple':
+    # Turn on all lights
+    light_group_states = hass.states.get(light_group)
+    light_group_attr = light_group_states.attributes.copy()
+    lights = light_group_attr['entity_id']
+    for l in lights[0:]:
+        turn_on(hass, 'light', l)
+elif action == 'button_2_hold':
+    # Set lights to max brightness and reset next scene cycle
     service_data = {'entity_id': light_group, 'brightness': 255}
     hass.services.call('light', 'turn_on', service_data, False)
 
@@ -79,28 +89,31 @@ elif action == 'button_1_triple' or action == 'button_2_triple':
     }
     hass.services.call('input_select', 'select_option', service_data, False)
 elif action == 'button_3_single' or action == 'button_4_single':
-    toggle_entity(hass, 'switch', 'switch.room1_tv')
-elif action == 'button_3_double' or action == 'button_4_double':
-    action = 'select_next' if action == 'button_4_double' else 'select_previous'
-    service_data = {'entity_id': 'input_select.room1_tv_channels'}
-    hass.services.call('input_select', action, service_data, False)
-elif action == 'button_5_single' or action == 'button_6_single':
+    # Toggle Fan
     toggle_entity(hass, 'switch', 'switch.novita_fan')
+elif action == 'button_3_double' or action == 'button_4_double':
+    # Cycle fan speed
+    if action == 'button_3_double': turn_off(hass, 'switch', 'switch.novita_fan_speed')
+    else: turn_on(hass, 'switch', 'switch.novita_fan_speed')
+elif action == 'button_5_single' or action == 'button_6_single':
+    # Toggle TV
+    toggle_entity(hass, 'switch', 'switch.room1_tv')
 elif action == 'button_5_double' or action == 'button_6_double':
-    action = 'select_next' if action == 'button_6_double' else 'select_previous'
+    # Cycle channels (TODO)
+    action = 'select_next' if action == 'button_5_double' else 'select_previous'
     service_data = {'entity_id': 'input_select.room1_tv_channels'}
     hass.services.call('input_select', action, service_data, False)
-    if action == 'button_5_double': turn_off(hass, 'switch', 'switch.novita_fan_speed')
-    else: turn_on(hass, 'switch', 'switch.novita_fan_speed')
-elif action == 'button_5_triple' or action == 'hold':
-    if action == 'button_5_triple': turn_off(hass, 'input_boolean', input_alarm)
-    else: turn_on(hass, 'input_boolean', input_alarm)
-    state = hass.states.get(input_alarm).state
-    message = 'Upcoming alarm is {}!'.format(state)
-    tts(hass, speaker, message)
-elif action == 'button_5_hold' or action == 'button_6_hold':
-    if action == 'button_5_hold': turn_off(hass, 'input_boolean', 'input_boolean.room1_wakeup_enabled')
+elif action == 'button_5_triple' or action == 'button_6_triple':
+    # Turn on/off alarm
+    if action == 'button_5_triple': turn_off(hass, 'input_boolean', 'input_boolean.room1_wakeup_enabled')
     else: turn_on(hass, 'input_boolean', 'input_boolean.room1_wakeup_enabled')
     state = hass.states.get('input_boolean.room1_wakeup_enabled').state
     message = 'Alarm is {}!'.format(state)
+    tts(hass, speaker, message)
+elif action == 'button_5_hold' or action == 'button_6_hold':
+    # Turn off/on next alarm
+    if action == 'button_5_hold': turn_off(hass, 'input_boolean', input_alarm)
+    else: turn_on(hass, 'input_boolean', input_alarm)
+    state = hass.states.get(input_alarm).state
+    message = 'Upcoming alarm is {}!'.format(state)
     tts(hass, speaker, message)
