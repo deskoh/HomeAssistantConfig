@@ -422,7 +422,12 @@
   action:
   - service: light.turn_on
     data_template:
-      entity_id: light.lamp_4
+      entity_id: >
+        {% if is_state('input_select.room_2_status', 'Awake') %}
+          light.lamp_4
+        {% else %}
+          light.lamp_3
+        {% endif %}
       brightness: >
         {% if is_state('input_select.room_2_status', 'Awake') %}
           200
