@@ -180,19 +180,14 @@
 - id: room_1_hue_switch
   alias: Room 1 Switch
   trigger:
-  - entity_id: sensor.bedroom_1_switch
-    platform: state
-  condition:
-  - condition: template
-    value_template: '{{ (trigger.to_state.last_updated != trigger.from_state.last_updated)
-      and (trigger.to_state.battery == trigger.from_state.battery)  }}'
+    platform: mqtt
+    topic: 'zigbee2mqtt/room1_hue_switch/action'
   action:
   - service: python_script.hue_switch
-    data:
-      switch_entity: sensor.bedroom_1_switch
+    data_template:
+      action: '{{ trigger.payload }}'
       light_group: group.room_1_lights
       input_select_scene: input_select.room_1_scene
-      input_alarm: input_boolean.room1_wakeup_dismiss
       speaker: media_player.room1_speaker
 
 - id: room_1_mi_switch
@@ -223,19 +218,14 @@
 - id: room_2_hue_switch
   alias: Room 2 Switch
   trigger:
-  - entity_id: sensor.bedroom_2_switch
-    platform: state
-  condition:
-  - condition: template
-    value_template: '{{ (trigger.to_state.last_updated != trigger.from_state.last_updated)
-      and (trigger.to_state.battery == trigger.from_state.battery) }}'
+    platform: mqtt
+    topic: 'zigbee2mqtt/room2_hue_switch/action'
   action:
-  - service: python_script.switch
-    data:
-      switch_entity: sensor.bedroom_2_switch
+  - service: python_script.hue_switch
+    data_template:
+      action: '{{ trigger.payload }}'
       light_group: group.room_2_lights
       input_select_scene: input_select.room_2_scene
-      input_alarm: input_boolean.room2_wakeup_dismiss
       fan_inputs:
         - fan.xiaomi_fan
         - input_number.room2_fan_speed 
@@ -268,8 +258,9 @@
 - id: room_1_switch_good_morning
   alias: Room 1 Switch Good Morning
   trigger:
-  - entity_id: sensor.bedroom_1_switch
-    platform: state
+    platform: mqtt
+    topic: 'zigbee2mqtt/room1_hue_switch/action'
+    payload: 'on-press'
   condition:
   - condition: state
     entity_id: input_select.room_1_status
@@ -279,9 +270,6 @@
     after_offset: -02:00:00
   - condition: sun
     before: sunset
-  - condition: template
-    value_template: '{{ (trigger.to_state.state == "1_click_up") and (trigger.to_state.last_updated != trigger.from_state.last_updated)
-      and (trigger.to_state.battery == trigger.from_state.battery)  }}'
   action:
   - service: script.room1_good_morning
     data:
@@ -290,8 +278,9 @@
 - id: room_2_switch_good_morning
   alias: Room 2 Switch Good Morning
   trigger:
-  - entity_id: sensor.bedroom_2_switch
-    platform: state
+    platform: mqtt
+    topic: 'zigbee2mqtt/room2_hue_switch/action'
+    payload: 'on-press'
   condition:
   - condition: state
     entity_id: input_select.room_2_status
@@ -301,9 +290,6 @@
     after: sunrise
   - condition: sun
     before: sunset
-  - condition: template
-    value_template: '{{ (trigger.to_state.state == "1_click_up") and (trigger.to_state.last_updated != trigger.from_state.last_updated)
-      and (trigger.to_state.battery == trigger.from_state.battery)  }}'
   action:
   - service: script.room2_good_morning
     data:

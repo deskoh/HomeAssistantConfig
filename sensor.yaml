@@ -22,8 +22,6 @@
   scan_interval: 60
   token: !secret mi_aqsensor_token
 
-- platform: huesensor
-
 - platform: command_line
   name: CPU Temperature
   command: "cat /sys/class/thermal/thermal_zone0/temp"

@@ -71,8 +71,8 @@ recorder:
       - weblink
     entities:
       - sensor.date_time
-      - sensor.bedroom_1_switch
-      - sensor.bedroom_2_switch
+      - sensor.room1_hue_switch_action
+      - sensor.room2_hue_switch_action
       - sensor.room1_button
       - sensor.room2_button1
       - sensor.room2_button2
@@ -89,6 +89,7 @@ history:
       - input_boolean
       - input_datetime
       - input_number
+      - input_select
       - script
       - group
     entities:
