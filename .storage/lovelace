@@ -1,0 +1,591 @@
+{
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "badges": [
+                        {
+                            "entity": "sensor.living_room_temperature"
+                        },
+                        {
+                            "entity": "device_tracker.deskoh"
+                        },
+                        {
+                            "entity": "device_tracker.lgh"
+                        },
+                        {
+                            "entity": "device_tracker.kcs"
+                        },
+                        {
+                            "entity": "binary_sensor.main_door"
+                        }
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.room_1_lights"
+                                },
+                                {
+                                    "entity": "light.lamp_1"
+                                },
+                                {
+                                    "entity": "light.lamp_2"
+                                },
+                                {
+                                    "entity": "light.floor_light"
+                                },
+                                {
+                                    "entity": "light.nanoleaf1"
+                                },
+                                {
+                                    "entity": "light.lightstrip"
+                                },
+                                {
+                                    "entity": "automation.room_1_motion_detection"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Room 1 Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.room_2_lights"
+                                },
+                                {
+                                    "entity": "light.lamp_3"
+                                },
+                                {
+                                    "entity": "light.lamp_4"
+                                },
+                                {
+                                    "entity": "automation.room_2_motion_detection"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Room 2 Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.deskoh_ipad"
+                                },
+                                {
+                                    "entity": "device_tracker.deskoh_x1"
+                                },
+                                {
+                                    "entity": "device_tracker.raymondse"
+                                },
+                                {
+                                    "entity": "device_tracker.rayiphone7"
+                                }
+                            ],
+                            "title": "Device Status",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.living_room_temperature"
+                                },
+                                {
+                                    "entity": "sensor.living_room_humidity"
+                                },
+                                {
+                                    "entity": "sensor.cpu_temperature"
+                                }
+                            ],
+                            "title": "Environment",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "icon": "mdi:router-wireless",
+                                    "name": "Router",
+                                    "type": "weblink",
+                                    "url": "http://192.168.1.1/"
+                                }
+                            ],
+                            "title": "Links",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.living_room_temperature"
+                                },
+                                {
+                                    "entity": "sensor.mi1_temp"
+                                },
+                                {
+                                    "entity": "sensor.mi2_temp"
+                                }
+                            ],
+                            "hours_to_show": 8,
+                            "refresh_interval": 0,
+                            "title": "Temperature",
+                            "type": "history-graph"
+                        }
+                    ],
+                    "icon": "mdi:home",
+                    "panel": false,
+                    "path": "home"
+                },
+                {
+                    "badges": [
+                        {
+                            "entity": "sensor.mi1_temp"
+                        },
+                        {
+                            "entity": "binary_sensor.mi1_motion"
+                        }
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.room_1_lights"
+                                },
+                                {
+                                    "entity": "light.lamp_1"
+                                },
+                                {
+                                    "entity": "light.lamp_2"
+                                },
+                                {
+                                    "entity": "light.floor_light"
+                                },
+                                {
+                                    "entity": "light.nanoleaf1"
+                                },
+                                {
+                                    "entity": "light.lightstrip"
+                                },
+                                {
+                                    "entity": "automation.room_1_motion_detection"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Room 1 Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.room1_wakeup_enabled"
+                                },
+                                {
+                                    "entity": "input_boolean.room1_wakeup_dismiss"
+                                },
+                                {
+                                    "entity": "input_datetime.room1_wakeup_time"
+                                },
+                                {
+                                    "entity": "input_number.room1_wakeup_duration"
+                                },
+                                {
+                                    "entity": "input_boolean.room1_wakeup_weekend"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Wake-up Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.room1_tv"
+                                },
+                                {
+                                    "entity": "input_select.room1_tv_channels"
+                                },
+                                {
+                                    "entity": "script.room1_tv_vol_up"
+                                },
+                                {
+                                    "entity": "script.room1_tv_vol_down"
+                                },
+                                {
+                                    "entity": "script.room1_tv_source"
+                                },
+                                {
+                                    "entity": "automation.tv_lights_automation"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Samsung TV",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "switch.novita_fan",
+                                "switch.novita_fan_speed",
+                                "switch.novita_fan_osc"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Fan",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.mi1_temp"
+                                },
+                                {
+                                    "entity": "sensor.mi1_humidity"
+                                },
+                                {
+                                    "entity": "sensor.mi1_pressure"
+                                },
+                                {
+                                    "entity": "sensor.mi1_illuminance"
+                                }
+                            ],
+                            "show_icon": true,
+                            "show_name": false,
+                            "title": "Environment",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "scene.room_1_white"
+                                },
+                                {
+                                    "entity": "scene.room_1_color_loop"
+                                },
+                                {
+                                    "entity": "scene.room_1_arctic_aurora"
+                                },
+                                {
+                                    "entity": "scene.room_1_spring_blossom"
+                                },
+                                {
+                                    "entity": "scene.room_1_tropical_twilight"
+                                }
+                            ],
+                            "title": "Scenes",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "media_player.room1_speaker",
+                            "type": "media-control"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "script.room1_good_morning"
+                                },
+                                {
+                                    "entity": "script.room1_good_night"
+                                },
+                                {
+                                    "entity": "script.room1_7min_workout"
+                                }
+                            ],
+                            "title": "Scripts",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "sensor.mi1_temp",
+                            "graph": "line",
+                            "hours_to_show": 8,
+                            "type": "sensor"
+                        }
+                    ],
+                    "panel": false,
+                    "path": "room-1",
+                    "title": "Room 1"
+                },
+                {
+                    "badges": [
+                        {
+                            "entity": "sensor.mi2_temp"
+                        },
+                        {
+                            "entity": "binary_sensor.mi2_motion"
+                        }
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.room_2_lights"
+                                },
+                                {
+                                    "entity": "light.lamp_3"
+                                },
+                                {
+                                    "entity": "light.lamp_4"
+                                },
+                                {
+                                    "entity": "automation.room_2_motion_detection"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Room 2 Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "fan.xiaomi_fan"
+                                },
+                                {
+                                    "entity": "input_number.room2_fan_speed"
+                                },
+                                {
+                                    "entity": "input_select.room2_fan_swing_angle"
+                                },
+                                {
+                                    "entity": "input_boolean.room2_fan_natural_mode"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Fan",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.room2_wakeup_enabled"
+                                },
+                                {
+                                    "entity": "input_boolean.room2_wakeup_dismiss"
+                                },
+                                {
+                                    "entity": "input_datetime.room2_wakeup_time"
+                                },
+                                {
+                                    "entity": "input_number.room2_wakeup_duration"
+                                },
+                                {
+                                    "entity": "input_boolean.room2_wakeup_weekend"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Wake-up Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.mi2_humidity"
+                                },
+                                {
+                                    "entity": "sensor.mi2_pressure"
+                                },
+                                {
+                                    "entity": "sensor.mi2_illuminance"
+                                }
+                            ],
+                            "show_name": false,
+                            "title": "Environment",
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "scene.room_2_color_loop"
+                                },
+                                {
+                                    "entity": "scene.room_2_arctic_aurora"
+                                },
+                                {
+                                    "entity": "scene.room_2_spring_blossom"
+                                }
+                            ],
+                            "title": "Scenes",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "media_player.room2_speaker",
+                            "type": "media-control"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "script.room2_good_morning"
+                                },
+                                {
+                                    "entity": "script.room2_good_night"
+                                },
+                                {
+                                    "entity": "script.room2_7min_workout"
+                                }
+                            ],
+                            "title": "Scripts",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "sensor.mi2_temp",
+                            "graph": "line",
+                            "hours_to_show": 12,
+                            "type": "sensor"
+                        }
+                    ],
+                    "path": "room-2",
+                    "title": "Room 2"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "sensor.room1_button_battery",
+                            "max": 100,
+                            "min": 0,
+                            "name": "Room 1 Button Battery",
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.room2_button1_battery",
+                            "max": 100,
+                            "min": 0,
+                            "name": "Room 2 Button 1",
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.room2_button2_battery",
+                            "max": 100,
+                            "min": 0,
+                            "name": "Room 2 Button 2",
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.room1_hue_switch_battery",
+                            "max": 100,
+                            "min": 0,
+                            "name": "Room 1 Hue Switch",
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.room2_hue_switch_battery",
+                            "max": 100,
+                            "min": 0,
+                            "name": "Room 2 Hue Switch",
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.room1_sensor_battery",
+                            "max": 100,
+                            "min": 0,
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.room2_sensor_battery",
+                            "max": 100,
+                            "min": 0,
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.mi1_motion_battery",
+                            "max": 100,
+                            "min": 0,
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.mi2_motion_battery",
+                            "max": 100,
+                            "min": 0,
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.main_door_battery",
+                            "max": 100,
+                            "min": 0,
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
+                        }
+                    ],
+                    "icon": "mdi:battery"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.zigbee_permit_join"
+                                },
+                                {
+                                    "entity": "sensor.bridge_state"
+                                }
+                            ],
+                            "title": "Zigbee",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "automation.cuckoo_clock"
+                                },
+                                {
+                                    "entity": "automation.sg_psi"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Automations",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:settings"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

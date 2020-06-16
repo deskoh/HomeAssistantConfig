@@ -1,4 +1,7 @@
-.storage
+.storage/*
+!.storage/core.device_registry
+!.storage/core.entity_registry
+!.storage/lovelace
 secrets.yaml
 known_devices.yaml
 www/images
