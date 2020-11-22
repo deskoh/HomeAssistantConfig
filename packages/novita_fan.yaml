@@ -1,20 +1,29 @@
-switch:
-  - platform: broadlink
-    host: 192.168.1.112
-    mac: '78:0F:77:19:FC:EE'
-    type: rm_mini
-    friendly_name: 'RM1'
-    timeout: 15
-    switches:
-      novita_fan:
-        friendly_name: Novita Fan
-        command_on: JgBIAAABKJQTEhMSExMSExMSEzcTExITEjgTNxM4EzcTOBMSEzcTOBMSExITNxM4ExMSExITEhMTNxM4EhMTEhM3EzgTNxM4EwANBQ==
-        command_off: JgBIAAABKJQTEhMSExMSExMSEzcTExITEjgTNxM4EzcTOBMSEzcTOBMSExITNxM4ExMSExITEhMTNxM4EhMTEhM3EzgTNxM4EwANBQ==
-      novita_fan_speed:
-        friendly_name: Speed
-        command_on: JgBIAAABKJQTExMSExITEhMSEzgTEhMSEzcUNxM3EzgTNxMSEzgTNxMTEzcTNxMTEzcTEhMSExMTNxMSExITOBMSEzcTOBM3EwANBQ==
-        command_off: JgBIAAABKJQTEhMSExITEhMTEzcTEhMSEzgTNxM4EzcTOBMSEzcTOBM3EzgTNxM3FBITEhMSExITEhMTExITEhM3EzgTNxM4EwANBQ==
-      novita_fan_osc:
-        friendly_name: Oscillation
-        command_on: JgBIAAABKJQTEhMSFBITEhMSEzcSFBMSEzcSOBQ3EzcUNxMSEzcUNxMSExIUERQSEzcTEhQRFBEUNxM3FDcTNxMSEzgTNxM4EwANBQ==
-        command_off: JgBIAAABKJQTExITEhQSExISEzcTExIUEjcTOBI4EzgSOBIUETkQOhEVEBUQOhEVEDkRFg8WERQROBI5EhQROBIUEjgTNxM4EwANBQ==
+script:
+  novita_fan_power:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.room1
+          device: fan
+          command: power
+  novita_fan_oscillate1:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.room1
+          device: fan
+          command: oscillate1
+  novita_fan_faster:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.room1
+          device: fan
+          command: faster
+  novita_fan_slower:
+    sequence:
+      - service: remote.send_command
+        data:
+          entity_id: remote.room1
+          device: fan
+          command: slower

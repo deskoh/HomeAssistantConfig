@@ -1,8 +1,13 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
             "views": [
                 {
+                    "icon": "mdi:home",
+                    "panel": false,
+                    "path": "home",
                     "badges": [
                         {
                             "entity": "sensor.living_room_temperature"
@@ -17,7 +22,7 @@
                             "entity": "device_tracker.kcs"
                         },
                         {
-                            "entity": "binary_sensor.main_door"
+                            "entity": "binary_sensor.main_door_sensor_contact"
                         }
                     ],
                     "cards": [
@@ -130,18 +135,18 @@
                             "title": "Temperature",
                             "type": "history-graph"
                         }
-                    ],
-                    "icon": "mdi:home",
-                    "panel": false,
-                    "path": "home"
+                    ]
                 },
                 {
+                    "panel": false,
+                    "path": "room-1",
+                    "title": "Room 1",
                     "badges": [
                         {
                             "entity": "sensor.mi1_temp"
                         },
                         {
-                            "entity": "binary_sensor.mi1_motion"
+                            "entity": "binary_sensor.mi1_motion_occupancy"
                         }
                     ],
                     "cards": [
@@ -222,9 +227,26 @@
                         },
                         {
                             "entities": [
-                                "switch.novita_fan",
-                                "switch.novita_fan_speed",
-                                "switch.novita_fan_osc"
+                                {
+                                    "entity": "script.novita_fan_power",
+                                    "name": "Power",
+                                    "icon": "hass:fan"
+                                },
+                                {
+                                    "entity": "script.novita_fan_faster",
+                                    "name": "Faster",
+                                    "icon": "hass:plus"
+                                },
+                                {
+                                    "entity": "script.novita_fan_slower",
+                                    "name": "Slower",
+                                    "icon": "hass:minus"
+                                },
+                                {
+                                    "entity": "script.novita_fan_oscillate1",
+                                    "name": "Oscillation",
+                                    "icon": "mdi:rotate-3d"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Fan",
@@ -236,13 +258,13 @@
                                     "entity": "sensor.mi1_temp"
                                 },
                                 {
-                                    "entity": "sensor.mi1_humidity"
+                                    "entity": "sensor.mi1_temp_humidity"
                                 },
                                 {
-                                    "entity": "sensor.mi1_pressure"
+                                    "entity": "sensor.mi1_temp_pressure"
                                 },
                                 {
-                                    "entity": "sensor.mi1_illuminance"
+                                    "entity": "sensor.mi1_motion_illuminance"
                                 }
                             ],
                             "show_icon": true,
@@ -296,18 +318,17 @@
                             "hours_to_show": 8,
                             "type": "sensor"
                         }
-                    ],
-                    "panel": false,
-                    "path": "room-1",
-                    "title": "Room 1"
+                    ]
                 },
                 {
+                    "path": "room-2",
+                    "title": "Room 2",
                     "badges": [
                         {
                             "entity": "sensor.mi2_temp"
                         },
                         {
-                            "entity": "binary_sensor.mi2_motion"
+                            "entity": "binary_sensor.mi2_motion_occupancy"
                         }
                     ],
                     "cards": [
@@ -374,13 +395,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.mi2_humidity"
+                                    "entity": "sensor.mi2_temp_humidity"
                                 },
                                 {
-                                    "entity": "sensor.mi2_pressure"
+                                    "entity": "sensor.mi2_temp_pressure"
                                 },
                                 {
-                                    "entity": "sensor.mi2_illuminance"
+                                    "entity": "sensor.mi2_motion_illuminance"
                                 }
                             ],
                             "show_name": false,
@@ -427,9 +448,7 @@
                             "hours_to_show": 12,
                             "type": "sensor"
                         }
-                    ],
-                    "path": "room-2",
-                    "title": "Room 2"
+                    ]
                 },
                 {
                     "badges": [],
@@ -495,7 +514,7 @@
                             "type": "gauge"
                         },
                         {
-                            "entity": "sensor.room1_sensor_battery",
+                            "entity": "sensor.mi1_temp_battery",
                             "max": 100,
                             "min": 0,
                             "severity": {
@@ -503,7 +522,8 @@
                                 "red": 10,
                                 "yellow": 20
                             },
-                            "type": "gauge"
+                            "type": "gauge",
+                            "name": "Room 1 Sensor Battery"
                         },
                         {
                             "entity": "sensor.room2_sensor_battery",
@@ -525,7 +545,8 @@
                                 "red": 10,
                                 "yellow": 20
                             },
-                            "type": "gauge"
+                            "type": "gauge",
+                            "name": "Room 1 Motion Battery"
                         },
                         {
                             "entity": "sensor.mi2_motion_battery",
@@ -536,7 +557,8 @@
                                 "red": 10,
                                 "yellow": 20
                             },
-                            "type": "gauge"
+                            "type": "gauge",
+                            "name": "Room 2 Motion Battery"
                         },
                         {
                             "entity": "sensor.main_door_battery",
@@ -585,7 +607,5 @@
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }

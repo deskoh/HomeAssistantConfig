@@ -19,9 +19,9 @@
       topic: zigbee2mqtt/bridge/config/permit_join
       payload: >
         {% if is_state('input_boolean.zigbee_permit_join', 'on') %}
-          true
+          'true'
         {% else %}
-          false
+          'false'
         {% endif %}
 
 - id: ifttt_call_service
@@ -228,7 +228,7 @@
       input_select_scene: input_select.room_2_scene
       fan_inputs:
         - fan.xiaomi_fan
-        - input_number.room2_fan_speed 
+        - input_number.room2_fan_speed
         - input_select.room2_fan_swing_angle
         - input_boolean.room2_fan_natural_mode
       speaker: media_player.room2_speaker
@@ -354,7 +354,7 @@
   initial_state: False
   trigger:
   - platform: state
-    entity_id: binary_sensor.mi1_motion
+    entity_id: binary_sensor.mi1_motion_occupancy
     to: 'on'
   condition:
   - condition: state
@@ -387,7 +387,7 @@
     data:
       entity_id: input_select.room_1_scene
       option: 'scene.room_1_white'
-  - wait_template: '{{ is_state(''binary_sensor.mi1_motion'', ''off'') }}'
+  - wait_template: '{{ is_state(''binary_sensor.mi1_motion_occupancy'', ''off'') }}'
   - condition: or
     conditions:
     - condition: state
@@ -439,7 +439,7 @@
     data:
       entity_id: input_select.room_2_scene
       option: 'scene.room_2_on'
-  - wait_template: "{{ is_state('binary_sensor.mi2_motion', 'off') or is_state('light.light.lamp_4', 'off') }}"
+  - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'off') or is_state('light.light.lamp_4', 'off') }}"
   - condition: state
     entity_id: light.lamp_4
     state: 'on'
@@ -450,7 +450,7 @@
   - condition: state
     entity_id: input_select.room_2_status
     state: 'Awake'
-  - wait_template: "{{ is_state('binary_sensor.mi2_motion', 'on') }}"
+  - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'on') }}"
     timeout: '00:00:05'
     continue_on_timeout: 'false'
   # Turn on lights persistently
@@ -468,7 +468,7 @@
   initial_state: True
   trigger:
   - platform: state
-    entity_id: binary_sensor.main_door
+    entity_id: binary_sensor.main_door_sensor_contact
     to: 'on'
   condition:
   - condition: state
@@ -487,9 +487,9 @@
     data:
       entity_id: light.lamp_4
       brightness: 200
-  - wait_template: "{{ is_state('binary_sensor.mi2_motion', 'on') }}"
+  - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'on') }}"
     timeout: '00:00:30'
-  - wait_template: "{{ is_state('binary_sensor.mi2_motion', 'off') }}"
+  - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'off') }}"
   - service: light.turn_off
     data:
       entity_id: light.lamp_4

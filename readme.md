@@ -1,6 +1,6 @@
 # [Home Assistant](https://www.home-assistant.io/) Configuration
 
-> HA Version: 0.111.1
+> HA Version: 0.118.2
 
 ## Automations
 

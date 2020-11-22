@@ -2,6 +2,7 @@
 !.storage/core.device_registry
 !.storage/core.entity_registry
 !.storage/lovelace
+!.storage/broadlink_remote*
 secrets.yaml
 known_devices.yaml
 www/images

@@ -1,36 +1,9 @@
 {
+    "version": 1,
+    "key": "core.device_registry",
     "data": {
-        "deleted_devices": [
-            {
-                "config_entries": [
-                    "fa8355cab2304a38a1b663e3ce08dbb8"
-                ],
-                "connections": [],
-                "id": "4c334f3f64d14c62a0852ea3353fb0cd",
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:17:88:01:03:e6:e4:64"
-                    ]
-                ]
-            },
-            {
-                "config_entries": [
-                    "fa8355cab2304a38a1b663e3ce08dbb8"
-                ],
-                "connections": [],
-                "id": "a2c16767c3f44e0bbd47e3185688106a",
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:17:88:01:02:d7:ec:66"
-                    ]
-                ]
-            }
-        ],
         "devices": [
             {
-                "area_id": null,
                 "config_entries": [
                     "fa8355cab2304a38a1b663e3ce08dbb8"
                 ],
@@ -40,8 +13,6 @@
                         "00:17:88:7b:23:b5"
                     ]
                 ],
-                "entry_type": null,
-                "id": "258113335ddb4107bb2155f026f1ea7a",
                 "identifiers": [
                     [
                         "hue",
@@ -51,18 +22,18 @@
                 "manufacturer": "Signify",
                 "model": "BSB002",
                 "name": "Philips hue",
-                "name_by_user": null,
-                "sw_version": "1938112040",
-                "via_device_id": null
+                "sw_version": "1941056000",
+                "entry_type": null,
+                "id": "258113335ddb4107bb2155f026f1ea7a",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
                     "b407947e9cf54fdd86150041c2cbcccd"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "2b0a6e1604294654af73b82b4c02c291",
                 "identifiers": [
                     [
                         "cast",
@@ -72,18 +43,18 @@
                 "manufacturer": "Google Inc.",
                 "model": "Google Home Mini",
                 "name": "Room 1 speaker",
-                "name_by_user": null,
                 "sw_version": null,
-                "via_device_id": null
+                "entry_type": null,
+                "id": "2b0a6e1604294654af73b82b4c02c291",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
                     "b407947e9cf54fdd86150041c2cbcccd"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "3f6d560157924162ae4981ccda808080",
                 "identifiers": [
                     [
                         "cast",
@@ -93,18 +64,18 @@
                 "manufacturer": "Google Inc.",
                 "model": "Google Home Mini",
                 "name": "Room 2 Speaker",
-                "name_by_user": null,
                 "sw_version": null,
-                "via_device_id": null
+                "entry_type": null,
+                "id": "3f6d560157924162ae4981ccda808080",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
                     "fa8355cab2304a38a1b663e3ce08dbb8"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "a43de49056964533af6fd0c3acbdf3a7",
                 "identifiers": [
                     [
                         "hue",
@@ -114,18 +85,18 @@
                 "manufacturer": "Signify Netherlands B.V.",
                 "model": "Hue color lamp",
                 "name": "Lamp 2",
-                "name_by_user": null,
                 "sw_version": "5.130.1.30000",
-                "via_device_id": "258113335ddb4107bb2155f026f1ea7a"
+                "entry_type": null,
+                "id": "a43de49056964533af6fd0c3acbdf3a7",
+                "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
                     "fa8355cab2304a38a1b663e3ce08dbb8"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "98cb3cca27014527812867c7fe1a1091",
                 "identifiers": [
                     [
                         "hue",
@@ -135,18 +106,18 @@
                 "manufacturer": "Signify Netherlands B.V.",
                 "model": "Hue color lamp",
                 "name": "Lamp 1",
-                "name_by_user": null,
                 "sw_version": "5.130.1.30000",
-                "via_device_id": "258113335ddb4107bb2155f026f1ea7a"
+                "entry_type": null,
+                "id": "98cb3cca27014527812867c7fe1a1091",
+                "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
                     "fa8355cab2304a38a1b663e3ce08dbb8"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "d730ae11c5014d1487d3cccebc947d2d",
                 "identifiers": [
                     [
                         "hue",
@@ -156,18 +127,18 @@
                 "manufacturer": "Signify Netherlands B.V.",
                 "model": "Hue white lamp",
                 "name": "Lamp 4",
-                "name_by_user": null,
                 "sw_version": "1.50.2_r30933",
-                "via_device_id": "258113335ddb4107bb2155f026f1ea7a"
+                "entry_type": null,
+                "id": "d730ae11c5014d1487d3cccebc947d2d",
+                "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
                     "fa8355cab2304a38a1b663e3ce08dbb8"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "19d734b07445460cb8fee1257bc29ecd",
                 "identifiers": [
                     [
                         "hue",
@@ -177,186 +148,81 @@
                 "manufacturer": "Signify Netherlands B.V.",
                 "model": "Hue color lamp",
                 "name": "Lamp 3",
-                "name_by_user": null,
                 "sw_version": "5.130.1.30000",
-                "via_device_id": "258113335ddb4107bb2155f026f1ea7a"
+                "entry_type": null,
+                "id": "19d734b07445460cb8fee1257bc29ecd",
+                "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
+                    "2aa94042036650e350c75193aab40364"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "ddc3cc2596584968861e220b5570b32d",
                 "identifiers": [
                     [
-                        "mqtt",
-                        "zigbee2mqtt_0x00158d000237486f"
+                        "yeelight",
+                        "0x0000000005e30608"
                     ]
                 ],
-                "manufacturer": "Xiaomi",
-                "model": "Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)",
-                "name": "mi1_temp",
-                "name_by_user": null,
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
+                "manufacturer": "Yeelight",
+                "model": "strip1",
+                "name": "Lightstrip",
+                "sw_version": "44",
+                "entry_type": null,
+                "id": "ce94c47caa27295614ab2c6031881b7f",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
+                    "b2db0d66c738dd480b76ef9e53932471"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "e9e9c01e1c594046af5cbd36dfbcccbf",
                 "identifiers": [
                     [
-                        "mqtt",
-                        "zigbee2mqtt_0x00158d00023748a4"
+                        "yeelight",
+                        "0x0000000005ec0330"
                     ]
                 ],
-                "manufacturer": "Xiaomi",
-                "model": "Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)",
-                "name": "mi2_temp",
-                "name_by_user": null,
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
+                "manufacturer": "Yeelight",
+                "model": "stripe",
+                "name": "Floor Light",
+                "sw_version": "73",
+                "entry_type": null,
+                "id": "63236b9af44bce86010e5acfdc98ed47",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
+                    "1cc606a4c667a23f77bc86ab2455e2a1"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "45c3c4f87fac42b58d0b6f6fe6f70741",
                 "identifiers": [
                     [
-                        "mqtt",
-                        "zigbee2mqtt_0x00158d00023e7750"
+                        "broadlink",
+                        "780f7719fcee"
                     ]
                 ],
-                "manufacturer": "Xiaomi",
-                "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
-                "name": "mi1_motion",
-                "name_by_user": null,
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
+                "manufacturer": "Broadlink",
+                "model": "RM mini 3",
+                "name": "RmMini",
+                "sw_version": 50,
+                "entry_type": null,
+                "id": "5f35b242c54a82a9be27ae11187e38ec",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
+                    "7236655868352b163f30ef0917da469d"
                 ],
                 "connections": [],
-                "entry_type": null,
-                "id": "c3d2dfa25f484d6681daec552ae5842a",
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "zigbee2mqtt_0x00158d0002369fae"
-                    ]
-                ],
-                "manufacturer": "Xiaomi",
-                "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
-                "name": "mi2_motion",
-                "name_by_user": null,
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "d1309eb365cd425b93cf269fd99e2d3e",
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "zigbee2mqtt_0x00158d0002499d52"
-                    ]
-                ],
-                "manufacturer": "Xiaomi",
-                "model": "MiJia wireless switch (WXKG01LM)",
-                "name": "room1_button",
-                "name_by_user": null,
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "9ee7f3dedbd94425ae3444b876e81c1f",
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "zigbee2mqtt_0x00158d00023d40fa"
-                    ]
-                ],
-                "manufacturer": "Xiaomi",
-                "model": "MiJia wireless switch (WXKG01LM)",
-                "name": "room2_button1",
-                "name_by_user": null,
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "a9430648d3874c1a8d8276272bef6945",
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "zigbee2mqtt_0x00158d0002499d7f"
-                    ]
-                ],
-                "manufacturer": "Xiaomi",
-                "model": "MiJia wireless switch (WXKG01LM)",
-                "name": "room2_button2",
-                "name_by_user": null,
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "fc2beca23f2145b29abb8f5f5c57ece3",
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "zigbee2mqtt_0x00158d0003031627"
-                    ]
-                ],
-                "manufacturer": "Xiaomi",
-                "model": "MiJia door & window contact sensor (MCCGQ01LM)",
-                "name": "main_door_sensor",
-                "name_by_user": "Main Door Sensor",
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
-            },
-            {
-                "area_id": null,
-                "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
-                ],
-                "connections": [],
-                "entry_type": null,
-                "id": "2c734ab4b299433fa8ce98a0cc39ba52",
                 "identifiers": [
                     [
                         "mqtt",
@@ -366,18 +232,123 @@
                 "manufacturer": "Xiaomi",
                 "model": "Aqara Opple switch 3 bands (WXCJKG13LM)",
                 "name": "room1_mi_switch1",
-                "name_by_user": null,
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
+                "sw_version": "Zigbee2MQTT 1.16.1",
+                "entry_type": null,
+                "id": "03dfff95e97fbc0d0f5deb7d217435b5",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
+                    "7236655868352b163f30ef0917da469d"
                 ],
                 "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "zigbee2mqtt_0x00158d00023748a4"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)",
+                "name": "mi2_temp",
+                "sw_version": "Zigbee2MQTT 1.16.1",
                 "entry_type": null,
-                "id": "d3c9d28753a5421b92d7206bb9e48eda",
+                "id": "78e418b135d075ef7ba4d2406792981f",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "7236655868352b163f30ef0917da469d"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "zigbee2mqtt_0x00158d00023e7750"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
+                "name": "mi1_motion",
+                "sw_version": "Zigbee2MQTT 1.16.1",
+                "entry_type": null,
+                "id": "c40a7de252bbc9566a95cffefa93636e",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "7236655868352b163f30ef0917da469d"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "zigbee2mqtt_0x00158d0002369fae"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
+                "name": "mi2_motion",
+                "sw_version": "Zigbee2MQTT 1.16.1",
+                "entry_type": null,
+                "id": "f7364637a2bf0ade63afd66c0c33cb6c",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "7236655868352b163f30ef0917da469d"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "zigbee2mqtt_0x00158d0002499d52"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "MiJia wireless switch (WXKG01LM)",
+                "name": "room1_button",
+                "sw_version": "Zigbee2MQTT 1.16.1",
+                "entry_type": null,
+                "id": "b59de028a098a7341ec4ba7dd2e90c21",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "7236655868352b163f30ef0917da469d"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "zigbee2mqtt_0x00158d00023d40fa"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "MiJia wireless switch (WXKG01LM)",
+                "name": "room2_button1",
+                "sw_version": "Zigbee2MQTT 1.16.1",
+                "entry_type": null,
+                "id": "7212baeb2820fefa54797ba8b280ea3d",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "7236655868352b163f30ef0917da469d"
+                ],
+                "connections": [],
                 "identifiers": [
                     [
                         "mqtt",
@@ -387,18 +358,81 @@
                 "manufacturer": "Philips",
                 "model": "Hue dimmer switch (324131092621)",
                 "name": "room1_hue_switch",
-                "name_by_user": null,
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
+                "sw_version": "Zigbee2MQTT 1.16.1",
+                "entry_type": null,
+                "id": "5c755d8ed6afd2c6302020eb82af4734",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
             },
             {
-                "area_id": null,
                 "config_entries": [
-                    "c410157adee84a25beaa443961efa1e1"
+                    "7236655868352b163f30ef0917da469d"
                 ],
                 "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "zigbee2mqtt_0x00158d000237486f"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)",
+                "name": "mi1_temp",
+                "sw_version": "Zigbee2MQTT 1.16.1",
                 "entry_type": null,
-                "id": "ff4cb4ebc2c44233b851fca9fa8feedc",
+                "id": "395456c0676155e2be332161c3563673",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "7236655868352b163f30ef0917da469d"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "zigbee2mqtt_0x00158d0003031627"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "MiJia door & window contact sensor (MCCGQ01LM)",
+                "name": "main_door_sensor",
+                "sw_version": "Zigbee2MQTT 1.16.1",
+                "entry_type": null,
+                "id": "10b86ab713455ad5f79f08bc7887fba8",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "7236655868352b163f30ef0917da469d"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "zigbee2mqtt_0x00158d0002499d7f"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "MiJia wireless switch (WXKG01LM)",
+                "name": "room2_button2",
+                "sw_version": "Zigbee2MQTT 1.16.1",
+                "entry_type": null,
+                "id": "2fbaf918d179fff7fd97fabc0b41148f",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            },
+            {
+                "config_entries": [
+                    "7236655868352b163f30ef0917da469d"
+                ],
+                "connections": [],
                 "identifiers": [
                     [
                         "mqtt",
@@ -408,12 +442,41 @@
                 "manufacturer": "Philips",
                 "model": "Hue dimmer switch (324131092621)",
                 "name": "room2_hue_switch",
-                "name_by_user": "room2_hue_switch",
-                "sw_version": "Zigbee2mqtt 1.14.0",
-                "via_device_id": null
+                "sw_version": "Zigbee2MQTT 1.16.1",
+                "entry_type": null,
+                "id": "ffc8cad2ab32b076da33f50fefad9a16",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null
+            }
+        ],
+        "deleted_devices": [
+            {
+                "config_entries": [
+                    "fa8355cab2304a38a1b663e3ce08dbb8"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:03:e6:e4:64"
+                    ]
+                ],
+                "id": "4c334f3f64d14c62a0852ea3353fb0cd"
+            },
+            {
+                "config_entries": [
+                    "fa8355cab2304a38a1b663e3ce08dbb8"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hue",
+                        "00:17:88:01:02:d7:ec:66"
+                    ]
+                ],
+                "id": "a2c16767c3f44e0bbd47e3185688106a"
             }
         ]
-    },
-    "key": "core.device_registry",
-    "version": 1
+    }
 }

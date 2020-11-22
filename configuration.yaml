@@ -53,14 +53,9 @@ hassio:
 mobile_app:
 
 mqtt:
-  discovery: true
+  username: user
   password: mqtt
-  birth_message:
-    topic: 'hass/status'
-    payload: 'online'
-  will_message:
-    topic: 'hass/status'
-    payload: 'offline'
+  client_id: haas_client
 
 recorder:
   purge_keep_days: 7
