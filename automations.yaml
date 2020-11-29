@@ -181,7 +181,7 @@
   alias: Room 1 Switch
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/room1_hue_switch/action'
+    topic: 'zigbee2mqtt/Room1 Hue Switch/action'
   action:
   - service: python_script.hue_switch
     data_template:
@@ -194,7 +194,7 @@
   alias: Room 1 Mi Switch
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/room1_mi_switch1/action'
+    topic: 'zigbee2mqtt/Room1 Mi Switch/action'
   action:
   - service: python_script.room1_mi_switch
     data_template:
@@ -208,18 +208,18 @@
   alias: Room 1 Button
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/room1_button'
+    topic: 'zigbee2mqtt/Room1 Button/click'
   action:
     service: python_script.button
     data_template:
-      button: "{{ trigger.topic.split('/')[-1] }}"
-      click: '{{ trigger.payload_json.click }}'
+      button: "{{ trigger.topic.split('/')[-2] }}"
+      click: '{{ trigger.payload }}'
 
 - id: room_2_hue_switch
   alias: Room 2 Switch
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/room2_hue_switch/action'
+    topic: 'zigbee2mqtt/Room2 Hue Switch/action'
   action:
   - service: python_script.hue_switch
     data_template:
@@ -237,29 +237,29 @@
   alias: Room 2 Button 1
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/room2_button1'
+    topic: 'zigbee2mqtt/Room2 Button1/click'
   action:
     service: python_script.button
     data_template:
-      button: "{{ trigger.topic.split('/')[-1] }}"
-      click: '{{ trigger.payload_json.click }}'
+      button: "{{ trigger.topic.split('/')[-2] }}"
+      click: '{{ trigger.payload }}'
 
 - id: room_2_button_2
   alias: Room 2 Button 2
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/room2_button2'
+    topic: 'zigbee2mqtt/Room2 Button2/click'
   action:
     service: python_script.button
     data_template:
-      button: "{{ trigger.topic.split('/')[-1] }}"
-      click: '{{ trigger.payload_json.click }}'
+      button: "{{ trigger.topic.split('/')[-2] }}"
+      click: '{{ trigger.payload }}'
 
 - id: room_1_switch_good_morning
   alias: Room 1 Switch Good Morning
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/room1_hue_switch/action'
+    topic: 'zigbee2mqtt/Room1 Hue Switch/action'
     payload: 'on-press'
   condition:
   - condition: state
@@ -279,7 +279,7 @@
   alias: Room 2 Switch Good Morning
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/room2_hue_switch/action'
+    topic: 'zigbee2mqtt/Room2 Hue Switch/action'
     payload: 'on-press'
   condition:
   - condition: state
@@ -413,7 +413,7 @@
   initial_state: False
   trigger:
   - platform: state
-    entity_id: binary_sensor.mi2_motion
+    entity_id: binary_sensor.mi2_motion_occupancy
     to: 'on'
   condition:
   - condition: state
@@ -439,29 +439,32 @@
     data:
       entity_id: input_select.room_2_scene
       option: 'scene.room_2_on'
-  - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'off') or is_state('light.light.lamp_4', 'off') }}"
+  - wait_template: >
+      {{ is_state('binary_sensor.mi2_motion_occupancy', 'off') and
+         (is_state('light.lamp_3', 'off') or is_state('light.lamp_4', 'off'))
+      }}
   - condition: state
-    entity_id: light.lamp_4
+    entity_id: light.room_2_lights
     state: 'on'
   - service: light.turn_off
     data:
       entity_id: light.lamp_4
-  # If room is awake, check for motion trigger within 5 seconds
-  - condition: state
-    entity_id: input_select.room_2_status
-    state: 'Awake'
-  - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'on') }}"
-    timeout: '00:00:05'
-    continue_on_timeout: 'false'
-  # Turn on lights persistently
-  - service: light.turn_on
-    data:
-      entity_id: light.lamp_4
-      brightness: 200
-  - service: logbook.log
-    data:
-      name: Motion
-      message: Room 2 persistent lights triggered
+  # # If room is awake, check for motion trigger within 5 seconds
+  # - condition: state
+  #   entity_id: input_select.room_2_status
+  #   state: 'Awake'
+  # - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'on') }}"
+  #   timeout: '00:00:05'
+  #   continue_on_timeout: 'false'
+  # # Turn on lights persistently
+  # - service: light.turn_on
+  #   data:
+  #     entity_id: light.lamp_4
+  #     brightness: 200
+  # - service: logbook.log
+  #   data:
+  #     name: Motion
+  #     message: Room 2 persistent lights triggered
 
 - id: evening_lights
   alias: Evening Lights

@@ -526,7 +526,7 @@
                             "name": "Room 1 Sensor Battery"
                         },
                         {
-                            "entity": "sensor.room2_sensor_battery",
+                            "entity": "sensor.mi2_temp_battery",
                             "max": 100,
                             "min": 0,
                             "severity": {
@@ -561,7 +561,7 @@
                             "name": "Room 2 Motion Battery"
                         },
                         {
-                            "entity": "sensor.main_door_battery",
+                            "entity": "sensor.main_door_sensor_battery",
                             "max": 100,
                             "min": 0,
                             "severity": {

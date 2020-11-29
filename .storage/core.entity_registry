@@ -1047,11 +1047,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "room1_mi_switch1_battery",
+                "original_name": "Room1 Mi Switch battery",
                 "original_icon": null
             },
             {
@@ -1064,11 +1064,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room1_mi_switch1_action",
+                "original_name": "Room1 Mi Switch action",
                 "original_icon": "mdi:gesture-double-tap"
             },
             {
@@ -1081,11 +1081,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "room1_mi_switch1_linkquality",
+                "original_name": "Room1 Mi Switch linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1098,11 +1098,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "mi2_temp_battery",
+                "original_name": "Room2 Temperature Sensor battery",
                 "original_icon": null
             },
             {
@@ -1115,11 +1115,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "humidity",
                 "unit_of_measurement": "%",
-                "original_name": "mi2_temp_humidity",
+                "original_name": "Room2 Temperature Sensor humidity",
                 "original_icon": null
             },
             {
@@ -1132,11 +1132,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "pressure",
                 "unit_of_measurement": "hPa",
-                "original_name": "mi2_temp_pressure",
+                "original_name": "Room2 Temperature Sensor pressure",
                 "original_icon": null
             },
             {
@@ -1149,11 +1149,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "mi2_temp_linkquality",
+                "original_name": "Room2 Temperature Sensor linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1166,11 +1166,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "mi1_motion_battery",
+                "original_name": "Room1 Motion Sensor battery",
                 "original_icon": null
             },
             {
@@ -1183,11 +1183,11 @@
                 "name": "Room 1 Motion",
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "motion",
                 "unit_of_measurement": null,
-                "original_name": "mi1_motion_occupancy",
+                "original_name": "Room1 Motion Sensor occupancy",
                 "original_icon": null
             },
             {
@@ -1200,11 +1200,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "illuminance",
                 "unit_of_measurement": "lx",
-                "original_name": "mi1_motion_illuminance",
+                "original_name": "Room1 Motion Sensor illuminance",
                 "original_icon": null
             },
             {
@@ -1217,11 +1217,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "mi1_motion_linkquality",
+                "original_name": "Room1 Motion Sensor linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1234,11 +1234,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "mi2_motion_battery",
+                "original_name": "Room 2 Motion Sensor battery",
                 "original_icon": null
             },
             {
@@ -1251,11 +1251,11 @@
                 "name": "Room 2 Motion",
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "motion",
                 "unit_of_measurement": null,
-                "original_name": "mi2_motion_occupancy",
+                "original_name": "Room 2 Motion Sensor occupancy",
                 "original_icon": null
             },
             {
@@ -1268,11 +1268,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "illuminance",
                 "unit_of_measurement": "lx",
-                "original_name": "mi2_motion_illuminance",
+                "original_name": "Room 2 Motion Sensor illuminance",
                 "original_icon": null
             },
             {
@@ -1285,11 +1285,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "mi2_motion_linkquality",
+                "original_name": "Room 2 Motion Sensor linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1302,11 +1302,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room1_button_click",
+                "original_name": "Room1 Button click",
                 "original_icon": "mdi:toggle-switch"
             },
             {
@@ -1319,11 +1319,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "room1_button_battery",
+                "original_name": "Room1 Button battery",
                 "original_icon": null
             },
             {
@@ -1336,11 +1336,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room1_button_action",
+                "original_name": "Room1 Button action",
                 "original_icon": "mdi:gesture-double-tap"
             },
             {
@@ -1353,11 +1353,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "room1_button_linkquality",
+                "original_name": "Room1 Button linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1370,11 +1370,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room2_button1_click",
+                "original_name": "Room2 Button1 click",
                 "original_icon": "mdi:toggle-switch"
             },
             {
@@ -1387,11 +1387,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "room2_button1_battery",
+                "original_name": "Room2 Button1 battery",
                 "original_icon": null
             },
             {
@@ -1404,11 +1404,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room2_button1_action",
+                "original_name": "Room2 Button1 action",
                 "original_icon": "mdi:gesture-double-tap"
             },
             {
@@ -1421,11 +1421,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "room2_button1_linkquality",
+                "original_name": "Room2 Button1 linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1438,11 +1438,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "room1_hue_switch_battery",
+                "original_name": "Room1 Hue Switch battery",
                 "original_icon": null
             },
             {
@@ -1455,11 +1455,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room1_hue_switch_action",
+                "original_name": "Room1 Hue Switch action",
                 "original_icon": "mdi:gesture-double-tap"
             },
             {
@@ -1472,11 +1472,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "room1_hue_switch_linkquality",
+                "original_name": "Room1 Hue Switch linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1489,11 +1489,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room1_hue_switch_update_available",
+                "original_name": "Room1 Hue Switch update_available",
                 "original_icon": null
             },
             {
@@ -1506,11 +1506,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room1_hue_switch_update_state",
+                "original_name": "Room1 Hue Switch update_state",
                 "original_icon": "mdi:update"
             },
             {
@@ -1523,11 +1523,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "mi1_temp_battery",
+                "original_name": "Room1 Temperature Sensor battery",
                 "original_icon": null
             },
             {
@@ -1540,11 +1540,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "humidity",
                 "unit_of_measurement": "%",
-                "original_name": "mi1_temp_humidity",
+                "original_name": "Room1 Temperature Sensor humidity",
                 "original_icon": null
             },
             {
@@ -1557,11 +1557,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "pressure",
                 "unit_of_measurement": "hPa",
-                "original_name": "mi1_temp_pressure",
+                "original_name": "Room1 Temperature Sensor pressure",
                 "original_icon": null
             },
             {
@@ -1574,11 +1574,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "mi1_temp_linkquality",
+                "original_name": "Room1 Temperature Sensor linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1591,11 +1591,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "main_door_sensor_battery",
+                "original_name": "Main Door Sensor battery",
                 "original_icon": null
             },
             {
@@ -1608,11 +1608,11 @@
                 "name": "Main Door",
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "door",
                 "unit_of_measurement": null,
-                "original_name": "main_door_sensor_contact",
+                "original_name": "Main Door Sensor contact",
                 "original_icon": null
             },
             {
@@ -1625,11 +1625,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "main_door_sensor_linkquality",
+                "original_name": "Main Door Sensor linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1642,11 +1642,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room2_button2_click",
+                "original_name": "Room2 Button2 click",
                 "original_icon": "mdi:toggle-switch"
             },
             {
@@ -1659,11 +1659,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "room2_button2_battery",
+                "original_name": "Room2 Button2 battery",
                 "original_icon": null
             },
             {
@@ -1676,11 +1676,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room2_button2_action",
+                "original_name": "Room2 Button2 action",
                 "original_icon": "mdi:gesture-double-tap"
             },
             {
@@ -1693,11 +1693,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "room2_button2_linkquality",
+                "original_name": "Room2 Button2 linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1710,11 +1710,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
-                "original_name": "room2_hue_switch_battery",
+                "original_name": "Room2 Hue Switch battery",
                 "original_icon": null
             },
             {
@@ -1727,11 +1727,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room2_hue_switch_action",
+                "original_name": "Room2 Hue Switch action",
                 "original_icon": "mdi:gesture-double-tap"
             },
             {
@@ -1744,11 +1744,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "lqi",
-                "original_name": "room2_hue_switch_linkquality",
+                "original_name": "Room2 Hue Switch linkquality",
                 "original_icon": "mdi:signal"
             },
             {
@@ -1761,11 +1761,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room2_hue_switch_update_available",
+                "original_name": "Room2 Hue Switch update_available",
                 "original_icon": null
             },
             {
@@ -1778,11 +1778,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "room2_hue_switch_update_state",
+                "original_name": "Room2 Hue Switch update_state",
                 "original_icon": "mdi:update"
             },
             {
@@ -1795,11 +1795,11 @@
                 "name": "Room 1 Temp",
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "mi1_temp_temperature",
+                "original_name": "Room1 Temperature Sensor temperature",
                 "original_icon": null
             },
             {
@@ -1812,11 +1812,11 @@
                 "name": "Room 2 Temp",
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "mi2_temp_temperature",
+                "original_name": "Room2 Temperature Sensor temperature",
                 "original_icon": null
             }
         ]

@@ -115,11 +115,11 @@ elif action == 'button_1_hold':
             hass.services.call('light', 'turn_on', service_data, False)
 elif action == 'button_3_single' or action == 'button_4_single':
     # Toggle Fan
-    toggle_entity(hass, 'switch', 'switch.novita_fan')
+    hass.services.call('script', 'novita_fan_power')
 elif action == 'button_3_double' or action == 'button_4_double':
     # Cycle fan speed
-    if action == 'button_3_double': turn_off(hass, 'switch', 'switch.novita_fan_speed')
-    else: turn_on(hass, 'switch', 'switch.novita_fan_speed')
+    if action == 'button_3_double': hass.services.call('script', 'novita_fan_slower')
+    else: hass.services.call('script', 'novita_fan_faster')
 elif action == 'button_5_single' or action == 'button_6_single':
     # Toggle TV
     toggle_entity(hass, 'switch', 'switch.room1_tv')

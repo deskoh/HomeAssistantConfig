@@ -42,27 +42,27 @@ script:
   'room1_tv_source':
     alias: Select Source
     sequence:
-      - service: broadlink.send
+      - service: remote.send_command
         data:
-          host: 192.168.1.112
-          packet:
-            - "JgBGAJOXETkROhA6EBUQFRAVEBUQFRA6EDoROREUERUQFRAVEBUQOhAVEBUQFRAVEBUQFREUERQRORE6EDoQOhA6EDoQOhEADQUAAA=="
+          entity_id: remote.room1
+          device: tv
+          command: source
   'room1_tv_vol_up':
     alias: Volume Up
     sequence:
-      - service: broadlink.send
+      - service: remote.send_command
         data:
-          host: 192.168.1.112
-          packet:
-            - "JgBGAJOXETkROhA6EBUQFRAVEBUQFRA6EDoROREUERUQFRAVEBUQOhA6EDoQFRAVEBURFBITEhMSExEVEjgSOBI4EjgSOBIADQUAAA=="
+          entity_id: remote.room1
+          device: tv
+          command: volume up
   'room1_tv_vol_down':
     alias: Volume Down
     sequence:
-      - service: broadlink.send
+      - service: remote.send_command
         data:
-          host: 192.168.1.112
-          packet:
-            - "JgCMAJSWEjgSORE5ERQRFBEUERQRFBE5ETkSOBITEhMSFBEUERQQOhE5ERQQOhEUEBURFBEUERQRFBE5ERUQOhA6EDoQOhAABg=="
+          entity_id: remote.room1
+          device: tv
+          command: volume down
 
 automation:
   - id: room1_tv_channels
@@ -74,27 +74,22 @@ automation:
     - condition: template
       value_template: "{{ not is_state('input_select.room1_tv_channels', 'Select Channel') }}"
     action:
-    - service: broadlink.send
+    - service: remote.send_command
       data_template:
-        host: 192.168.1.112
-        packet: >
+        entity_id: remote.room1
+        device: tv
+        command: >
           {% if trigger.to_state.state == 'Channel 5' %}
-            JgBGAJSVEzgSOBM3ExISExIUEhMRFBI4EjgSOBITEhMSExITExITNxMTEjgSExEUEhMSExEUERQRORITEjgSOBI4EjkRORIADQUAAA==
+            channel5
           {% elif trigger.to_state.state == 'Channel 8' %}
-            JgBGAJWVEzcTNxM4EhMSExITEhMSExI4EjgSOBMSExITExITEhMSExI4EjgSExITEhMSExITEzcTEhMTEjgTNxI4EjgSOBIADQUAAA==
+            channel8
           {% elif trigger.to_state.state == 'Channel NewsAsia' %}
-            JgBGAJSXEDoQOhE5ERQRFRAVEBUQFRA6EDoROREUERUQFRAVEBUQFRA6ERQROREVEBUQFRAVEDoQFRA6ERQRORE6EDoQOhAADQUAAA==
+            cna
           {% elif trigger.to_state.state == 'Channel U' %}
-            JgBGAJSXEDoQOhA6ERQRFBEUERUQFRA6EDoQOhEUERQRFBEVEBUQFRAVEDoQOhAVERQRFBEUEToQOhAVEBUQOhE5ETkROhAADQUAAA==
-          {% elif trigger.to_state.state == 'okto' %}
-            JgBGAJOXEToRORA6EBUQFRAVERQRFBE5EToQOhAVEBUQFRAVERQROREVEDoQOhAVEBUQFREUERQROREVEBUQOhA6ETkROREADQUAAA
+            channelu
           {% endif %}
     - delay:
         milliseconds: 200
-    - service: broadlink.send
-      data:
-        host: 192.168.1.112
-        packet: JgBGAJaUEzgSOBI4ExITEhMSExITEhM3EzgSOBITEhMSExITExITEhMSExITNxMTEjgSOBITEjgTNxM3ExITNxMTEhMSOBIADQUAAA==
     - service: input_select.select_option
       data:
         entity_id: input_select.room1_tv_channels

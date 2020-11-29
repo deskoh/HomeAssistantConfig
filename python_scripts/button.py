@@ -19,7 +19,7 @@ def activate_scene(hass, scene):
     service_data = {'entity_id': scene}
     hass.services.call('scene', 'turn_on', service_data, False)
 
-if button == 'room1_button':
+if button == 'Room1 Button':
     if click == 'single':
         toggle_entity(hass, 'light', 'light.room_1_lights')
     elif click == 'double':
@@ -35,12 +35,12 @@ if button == 'room1_button':
         turn_off(hass, 'switch', 'switch.room1_tv')
     elif click == 'long':
         hass.services.call('script', 'room1_good_night', {}, False)
-elif button == 'room2_button1' or button == 'room2_button2':
+elif button == 'Room2 Button1' or button == 'Room2 Button2':
     # Button 1
-    if click == 'single' and button == 'room2_button1':
+    if click == 'single' and button == 'Room2 Button1':
         toggle_entity(hass, 'light', 'light.room_2_lights')
     # Button 2
-    elif click == 'single' and button == 'room2_button2':
+    elif click == 'single' and button == 'Room2 Button2':
         # Toggle Lamp 3 (with max brightness)
         light_states = hass.states.get('light.lamp_3')
         if light_states.state == 'off':
