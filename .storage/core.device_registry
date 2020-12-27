@@ -22,12 +22,13 @@
                 "manufacturer": "Signify",
                 "model": "BSB002",
                 "name": "Philips hue",
-                "sw_version": "1941056000",
+                "sw_version": "1941132080",
                 "entry_type": null,
                 "id": "258113335ddb4107bb2155f026f1ea7a",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -48,7 +49,8 @@
                 "id": "2b0a6e1604294654af73b82b4c02c291",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -69,7 +71,8 @@
                 "id": "3f6d560157924162ae4981ccda808080",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -90,7 +93,8 @@
                 "id": "a43de49056964533af6fd0c3acbdf3a7",
                 "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -111,7 +115,8 @@
                 "id": "98cb3cca27014527812867c7fe1a1091",
                 "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -132,7 +137,8 @@
                 "id": "d730ae11c5014d1487d3cccebc947d2d",
                 "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -153,7 +159,8 @@
                 "id": "19d734b07445460cb8fee1257bc29ecd",
                 "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -174,7 +181,8 @@
                 "id": "ce94c47caa27295614ab2c6031881b7f",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -195,7 +203,8 @@
                 "id": "63236b9af44bce86010e5acfdc98ed47",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -216,7 +225,8 @@
                 "id": "5f35b242c54a82a9be27ae11187e38ec",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -237,7 +247,8 @@
                 "id": "03dfff95e97fbc0d0f5deb7d217435b5",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -258,7 +269,8 @@
                 "id": "78e418b135d075ef7ba4d2406792981f",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -279,7 +291,8 @@
                 "id": "c40a7de252bbc9566a95cffefa93636e",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -300,7 +313,8 @@
                 "id": "f7364637a2bf0ade63afd66c0c33cb6c",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -321,7 +335,8 @@
                 "id": "b59de028a098a7341ec4ba7dd2e90c21",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -342,7 +357,8 @@
                 "id": "7212baeb2820fefa54797ba8b280ea3d",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -363,7 +379,8 @@
                 "id": "5c755d8ed6afd2c6302020eb82af4734",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -384,7 +401,8 @@
                 "id": "395456c0676155e2be332161c3563673",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -405,7 +423,8 @@
                 "id": "10b86ab713455ad5f79f08bc7887fba8",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -426,7 +445,8 @@
                 "id": "2fbaf918d179fff7fd97fabc0b41148f",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             },
             {
                 "config_entries": [
@@ -447,7 +467,8 @@
                 "id": "ffc8cad2ab32b076da33f50fefad9a16",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null
+                "name_by_user": null,
+                "disabled_by": null
             }
         ],
         "deleted_devices": [

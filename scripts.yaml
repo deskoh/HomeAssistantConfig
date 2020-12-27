@@ -38,7 +38,6 @@ good_morning:
       - '{{ speaker }}'
       message: >
         {{ tts_prefix }}
-        Turning on lights.
         {% if fan is not none and is_state(fan, 'on') %}
         Switching off fan.
         {% endif %}
@@ -46,11 +45,11 @@ good_morning:
         {% if alarm_offset > 0 and alarm_offset < 120 and is_state(wakeup_dismiss, 'off') %}
         Dismissing upcoming wake up lights.
         {% endif %}
-  - service: light.turn_on
-    data_template:
-      entity_id: '{{ lights }}'
-      brightness: 255
-      transition: 15
+  # - service: light.turn_on
+  #   data_template:
+  #     entity_id: '{{ lights }}'
+  #     brightness: 255
+  #     transition: 15
   - service: fan.turn_off
     data_template:
       entity_id: '{{ fan }}'

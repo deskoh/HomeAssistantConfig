@@ -8,22 +8,6 @@
     data:
       addon: core_letsencrypt
 
-- id: zigbee_join
-  alias: Enable Zigbee joining
-  trigger:
-    platform: state
-    entity_id: input_boolean.zigbee_permit_join
-  action:
-  - service: mqtt.publish
-    data_template:
-      topic: zigbee2mqtt/bridge/config/permit_join
-      payload: >
-        {% if is_state('input_boolean.zigbee_permit_join', 'on') %}
-          'true'
-        {% else %}
-          'false'
-        {% endif %}
-
 - id: ifttt_call_service
   alias: IFTTT Call Service
   trigger:
@@ -440,15 +424,28 @@
       entity_id: input_select.room_2_scene
       option: 'scene.room_2_on'
   - wait_template: >
-      {{ is_state('binary_sensor.mi2_motion_occupancy', 'off') and
-         (is_state('light.lamp_3', 'off') or is_state('light.lamp_4', 'off'))
+      {{ is_state('binary_sensor.mi2_motion_occupancy', 'off') or
+         is_state('light.room_2_lights', 'off')
       }}
-  - condition: state
-    entity_id: light.room_2_lights
-    state: 'on'
-  - service: light.turn_off
-    data:
-      entity_id: light.lamp_4
+  - choose:
+    - conditions: >
+        {{ (is_state('input_select.room_2_status', 'Awake') and
+             state_attr("light.lamp_3", "brightness") == 200) or
+           (is_state('input_select.room_2_status', 'Sleeping') and
+             state_attr("light.lamp_3", "brightness") == 10) }}
+      sequence:
+      - service: light.turn_off
+        data:
+          entity_id: light.lamp_3
+    - conditions: >
+        {{ (is_state('input_select.room_2_status', 'Awake') and
+             state_attr("light.lamp_4", "brightness") == 200) or
+           (is_state('input_select.room_2_status', 'Sleeping') and
+             state_attr("light.lamp_4", "brightness") == 10) }}
+      sequence:
+      - service: light.turn_off
+        data:
+          entity_id: light.lamp_4
   # # If room is awake, check for motion trigger within 5 seconds
   # - condition: state
   #   entity_id: input_select.room_2_status
@@ -483,7 +480,7 @@
     after: '18:00:00'
     before: '23:00:00'
   - condition: state
-    entity_id: input_select.room_1_status
+    entity_id: input_select.room_2_status
     state: 'Awake'
   action:
   - service: light.turn_on

@@ -142,5 +142,5 @@ elif action == 'off-press':
     else:
         now = datetime.datetime.now()
         # message = 'The time now is {:%H:%M %p}'.format(now)
-        message = '{:02d}:{:02d}'.format((now.hour + 8) % 24, now.minute)
+        message = '{:d}, {:d}, {:d}, {:d}'.format(now.hour // 10, now.hour % 10, now.minute // 10, now.minute % 10)
         tts(hass, speaker, message)

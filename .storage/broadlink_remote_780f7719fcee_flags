@@ -2,7 +2,7 @@
     "version": 1,
     "key": "broadlink_remote_780f7719fcee_flags",
     "data": {
-        "fan": 1,
+        "fan": 0,
         "tv": 1
     }
 }

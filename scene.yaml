@@ -34,7 +34,7 @@
       brightness: 100
     light.nanoleaf1:
       state: on
-      color_name: 'white'
+      effect: random
       brightness: 100
     light.floor_light:
       state: off

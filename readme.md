@@ -1,6 +1,6 @@
 # [Home Assistant](https://www.home-assistant.io/) Configuration
 
-> HA Version: 0.118.2
+> HA Version: 2020.12.1
 
 ## Automations
 
