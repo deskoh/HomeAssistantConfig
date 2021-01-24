@@ -21,7 +21,7 @@ action = data.get('action', '')
 light_group = data.get('light_group', 'group.room_1_lights')
 input_scene = data.get('input_select_scene', 'input_select.room_1_scene')
 input_alarm = data.get('input_alarm', 'input_boolean.room1_wakeup_dismiss')
-speaker = data.get('speaker', 'media_player.room1_speaker')
+speaker = data.get('speaker', 'media_player.room_1_speaker')
 
 def turn_on(hass, entity, entity_id):
     service_data = {'entity_id': entity_id}

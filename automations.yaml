@@ -41,7 +41,7 @@
     event_data:
       action: tts
   action:
-    service: tts.google_say
+    service: tts.google_translate_say
     data_template:
       entity_id: '{{ trigger.event.data.entity_id }}'
       message: '{{ trigger.event.data.message }}'
@@ -134,7 +134,7 @@
       wakeup_duration: input_number.room1_wakeup_duration
       wakeup_enabled: input_boolean.room1_wakeup_enabled
       wakeup_weekend: input_boolean.room1_wakeup_weekend
-      speaker: media_player.room1_speaker
+      speaker: media_player.room_1_speaker
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.room1_wakeup_dismiss
@@ -154,7 +154,7 @@
       wakeup_duration: input_number.room2_wakeup_duration
       wakeup_enabled: input_boolean.room2_wakeup_enabled
       wakeup_weekend: input_boolean.room2_wakeup_weekend
-      speaker: media_player.room2_speaker
+      speaker: media_player.room_2_speaker
       input_status: input_select.room_2_status
       fan: fan.xiaomi_fan
   - service: input_boolean.turn_off
@@ -172,7 +172,7 @@
       action: '{{ trigger.payload }}'
       light_group: group.room_1_lights
       input_select_scene: input_select.room_1_scene
-      speaker: media_player.room1_speaker
+      speaker: media_player.room_1_speaker
 
 - id: room_1_mi_switch
   alias: Room 1 Mi Switch
@@ -186,7 +186,7 @@
       light_group: group.room_1_lights
       input_select_scene: input_select.room_1_scene
       input_alarm: input_boolean.room1_wakeup_dismiss
-      speaker: media_player.room1_speaker
+      speaker: media_player.room_1_speaker
 
 - id: room_1_button
   alias: Room 1 Button
@@ -215,7 +215,7 @@
         - input_number.room2_fan_speed
         - input_select.room2_fan_swing_angle
         - input_boolean.room2_fan_natural_mode
-      speaker: media_player.room2_speaker
+      speaker: media_player.room_2_speaker
 
 - id: room_2_button_1
   alias: Room 2 Button 1
@@ -299,7 +299,7 @@
     state: 'Awake'
   - condition: template
     value_template: >
-      {% if is_state('media_player.room1_speaker', 'playing') %}
+      {% if is_state('media_player.room_1_speaker', 'playing') %}
         false
       {% else %}
         true
@@ -307,14 +307,14 @@
   action:
     - service: media_player.play_media
       data_template:
-        entity_id: media_player.room1_speaker
+        entity_id: media_player.room_1_speaker
         media_content_id: >
           {% if now().strftime("%M")|int == 30 %}
-          {{ states("sensor.clock_media_baseurl") }}-01.wav
+          media-source://media_source/local/cuckoo-clock-01.wav
           {% else %}
-          {{ states("sensor.clock_media_baseurl") }}-{{ now().strftime("%I") }}.wav
+          media-source://media_source/local/cuckoo-clock-{{ now().strftime("%I") }}.wav
           {% endif %}
-        media_content_type: audio/mp4
+        media_content_type: music
 
 - id: room2_fan_inputs
   alias: Room 2 Fan Inputs
@@ -338,7 +338,7 @@
   initial_state: False
   trigger:
   - platform: state
-    entity_id: binary_sensor.mi1_motion_occupancy
+    entity_id: binary_sensor.room1_motion
     to: 'on'
   condition:
   - condition: state
@@ -371,7 +371,7 @@
     data:
       entity_id: input_select.room_1_scene
       option: 'scene.room_1_white'
-  - wait_template: '{{ is_state(''binary_sensor.mi1_motion_occupancy'', ''off'') }}'
+  - wait_template: '{{ is_state(''binary_sensor.room1_motion'', ''off'') }}'
   - condition: or
     conditions:
     - condition: state
@@ -397,7 +397,7 @@
   initial_state: False
   trigger:
   - platform: state
-    entity_id: binary_sensor.mi2_motion_occupancy
+    entity_id: binary_sensor.room2_motion
     to: 'on'
   condition:
   - condition: state
@@ -424,7 +424,7 @@
       entity_id: input_select.room_2_scene
       option: 'scene.room_2_on'
   - wait_template: >
-      {{ is_state('binary_sensor.mi2_motion_occupancy', 'off') or
+      {{ is_state('binary_sensor.room2_motion', 'off') or
          is_state('light.room_2_lights', 'off')
       }}
   - choose:
@@ -450,7 +450,7 @@
   # - condition: state
   #   entity_id: input_select.room_2_status
   #   state: 'Awake'
-  # - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'on') }}"
+  # - wait_template: "{{ is_state('binary_sensor.room2_motion', 'on') }}"
   #   timeout: '00:00:05'
   #   continue_on_timeout: 'false'
   # # Turn on lights persistently
@@ -487,9 +487,9 @@
     data:
       entity_id: light.lamp_4
       brightness: 200
-  - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'on') }}"
+  - wait_template: "{{ is_state('binary_sensor.room2_motion', 'on') }}"
     timeout: '00:00:30'
-  - wait_template: "{{ is_state('binary_sensor.mi2_motion_occupancy', 'off') }}"
+  - wait_template: "{{ is_state('binary_sensor.room2_motion', 'off') }}"
   - service: light.turn_off
     data:
       entity_id: light.lamp_4

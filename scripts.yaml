@@ -24,7 +24,7 @@ wake_up_lights:
   - service: media_player.play_media
     data_template:
       entity_id: '{{ speaker }}'
-      media_content_id: !secret alarm_media_url
+      media_content_id: media-source://media_source/local/Awaken.ogg
       media_content_type: audio/ogg
   - service: fan.turn_off
     data_template:
@@ -32,7 +32,7 @@ wake_up_lights:
 good_morning:
   alias: Good Morning
   sequence:
-  - service: tts.google_say
+  - service: tts.google_translate_say
     data_template:
       entity_id:
       - '{{ speaker }}'
@@ -75,22 +75,22 @@ good_night:
     data_template:
       entity_id: '{{ room_status }}'
       option: Sleeping
-  - service: tts.google_say
+  - service: tts.google_translate_say
     data_template:
       entity_id:
       - '{{ speaker }}'
       message: "{{ [
         'Good night. Sleep tight.',
         'Good night. Sweet dreams.',
-        'You’ll be the last thing I think of before I fall asleep and the first thing I think of when I wake up.',
+        'You''ll be the last thing I think of before I fall asleep and the first thing I think of when I wake up.',
         'Good night, sleep tight. I will be dreaming of you with all my might.',
-        'If someone wishes you goodnight every day, you’re happier than so many people.',
-        'And tonight, I’ll fall asleep with you in my heart.',
+        'If someone wishes you goodnight every day, you''re happier than so many people.',
+        'And tonight, I''ll fall asleep with you in my heart.',
         'May you dream of lovely things and to find them real.',
         'Go to bed with satisfaction. Wake up with determination.',
-        'Day is over, night has come. Today is gone, what’s done is done. Embrace your dreams, through the night. Tomorrow comes with a whole new light.',
-        'Always end the day, with a positive thought. No matter how hard things were, tomorrow’s a fresh opportunity to make it better.',
-        'I don’t dream about you, because I can never fall asleep thinking about you.',
+        'Day is over, night has come. Today is gone, what''s done is done. Embrace your dreams, through the night. Tomorrow comes with a whole new light.',
+        'Always end the day, with a positive thought. No matter how hard things were, tomorrow''s a fresh opportunity to make it better.',
+        'I don''t dream about you, because I can never fall asleep thinking about you.',
         'Sleeping is nice. You forget about everything for a little while.',
         'When you lie down, you will not be afraid. Your sleep will be sweet.',
         'I must get my beauty rest. See you in the morning.'] | random }}"
@@ -103,7 +103,7 @@ good_night:
       lights: light.room_1_lights
       fan: ''
       room_status: input_select.room_1_status
-      speaker: media_player.room1_speaker
+      speaker: media_player.room_1_speaker
       wakeup_dismiss: input_boolean.room1_wakeup_dismiss
       wakeup_time: input_datetime.room1_wakeup_time
 'room2_good_morning':
@@ -115,7 +115,7 @@ good_night:
       lights: light.room_2_lights
       fan: fan.xiaomi_fan
       room_status: input_select.room_2_status
-      speaker: media_player.room2_speaker
+      speaker: media_player.room_2_speaker
       wakeup_dismiss: input_boolean.room2_wakeup_dismiss
       wakeup_time: input_datetime.room2_wakeup_time
 'room1_good_night':
@@ -125,7 +125,7 @@ good_night:
     data:
       lights: light.room_1_lights
       room_status: input_select.room_1_status
-      speaker: media_player.room1_speaker
+      speaker: media_player.room_1_speaker
   - condition: state
     entity_id: device_tracker.room1_tv
     state: home
@@ -139,20 +139,20 @@ good_night:
     data:
       lights: light.room_2_lights
       room_status: input_select.room_2_status
-      speaker: media_player.room2_speaker
+      speaker: media_player.room_2_speaker
 'room1_7min_workout':
   alias: 7 minute workout
   sequence:
   - service: media_player.play_media
     data_template:
-      entity_id: media_player.room1_speaker
-      media_content_id: '{{ states("sensor.workout_media_url") }}'
+      entity_id: media_player.room_1_speaker
+      media_content_id: media-source://media_source/local/7-min-workout.mp3
       media_content_type: audio/mp3
 'room2_7min_workout':
   alias: 7 minute workout
   sequence:
   - service: media_player.play_media
     data_template:
-      entity_id: media_player.room2_speaker
-      media_content_id: '{{ states("sensor.workout_media_url") }}'
+      entity_id: media_player.room_2_speaker
+      media_content_id: media-source://media_source/local/7-min-workout.mp3
       media_content_type: audio/mp3

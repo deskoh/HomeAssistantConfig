@@ -26,7 +26,7 @@ if button == 'Room1 Button':
         # toggle_tv(hass)
         toggle_entity(hass, 'switch', 'switch.room1_tv')
     elif click == 'triple':
-        service_data = {'entity_id': 'media_player.room1_speaker',
+        service_data = {'entity_id': 'media_player.room_1_speaker',
                         'message': 'Setting lights to maximum brightness'}
         hass.services.call('tts', 'google_say', service_data, False)
         activate_scene(hass, 'scene.room_1_white')
@@ -53,7 +53,7 @@ elif button == 'Room2 Button1' or button == 'Room2 Button2':
     elif click == 'double':
         toggle_entity(hass, 'fan', 'fan.xiaomi_fan')
     elif click == 'triple':
-        service_data = {'entity_id': 'media_player.room2_speaker',
+        service_data = {'entity_id': 'media_player.room_2_speaker',
                         'message': 'Activating night scene'}
         hass.services.call('tts', 'google_say', service_data, False)
         activate_scene(hass, 'scene.night')

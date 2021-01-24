@@ -5,6 +5,50 @@
         "devices": [
             {
                 "config_entries": [
+                    "b4721bfddc2aad0b3a079413f192357e"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "cast",
+                        "0cb0b2cbb52531152e15f5be3b2d747e"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home Mini",
+                "name": "Room 2 Speaker",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "fbe8a4c8a44080822d2df921ef9f4ddf",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "b4721bfddc2aad0b3a079413f192357e"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "cast",
+                        "11f37ccd2eb105720972c1e920d05771"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Google Home Mini",
+                "name": "Room 1 speaker",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "6d481902d65e007f8fbe973c159bb1c4",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
                     "fa8355cab2304a38a1b663e3ce08dbb8"
                 ],
                 "connections": [
@@ -22,53 +66,9 @@
                 "manufacturer": "Signify",
                 "model": "BSB002",
                 "name": "Philips hue",
-                "sw_version": "1941132080",
+                "sw_version": "1942135050",
                 "entry_type": null,
                 "id": "258113335ddb4107bb2155f026f1ea7a",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "b407947e9cf54fdd86150041c2cbcccd"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "cast",
-                        "11f37ccd2eb105720972c1e920d05771"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Google Home Mini",
-                "name": "Room 1 speaker",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "2b0a6e1604294654af73b82b4c02c291",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "b407947e9cf54fdd86150041c2cbcccd"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "cast",
-                        "0cb0b2cbb52531152e15f5be3b2d747e"
-                    ]
-                ],
-                "manufacturer": "Google Inc.",
-                "model": "Google Home Mini",
-                "name": "Room 2 Speaker",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "3f6d560157924162ae4981ccda808080",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -230,7 +230,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -242,9 +242,9 @@
                 "manufacturer": "Xiaomi",
                 "model": "Aqara Opple switch 3 bands (WXCJKG13LM)",
                 "name": "Room1 Mi Switch",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "03dfff95e97fbc0d0f5deb7d217435b5",
+                "id": "e1c5fffe04bc48898d632edbca3d048d",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -252,7 +252,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -264,9 +264,9 @@
                 "manufacturer": "Xiaomi",
                 "model": "Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)",
                 "name": "Room2 Temperature Sensor",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "78e418b135d075ef7ba4d2406792981f",
+                "id": "fbdbfc49e0ccfc9e992de32d3cfd0efe",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -274,7 +274,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -286,9 +286,9 @@
                 "manufacturer": "Xiaomi",
                 "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
                 "name": "Room1 Motion Sensor",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "c40a7de252bbc9566a95cffefa93636e",
+                "id": "6cf73afe0ae4e8a9a89d002e916da032",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -296,7 +296,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -308,9 +308,9 @@
                 "manufacturer": "Xiaomi",
                 "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
                 "name": "Room 2 Motion Sensor",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "f7364637a2bf0ade63afd66c0c33cb6c",
+                "id": "d1596a4f43e0a7e8bbd320e763eea24b",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -318,7 +318,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -330,9 +330,9 @@
                 "manufacturer": "Xiaomi",
                 "model": "MiJia wireless switch (WXKG01LM)",
                 "name": "Room1 Button",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "b59de028a098a7341ec4ba7dd2e90c21",
+                "id": "c1bd87af1ee40db4ac8b33395bd621fc",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -340,7 +340,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -352,9 +352,9 @@
                 "manufacturer": "Xiaomi",
                 "model": "MiJia wireless switch (WXKG01LM)",
                 "name": "Room2 Button1",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "7212baeb2820fefa54797ba8b280ea3d",
+                "id": "b8cd6be129524201fb3a047a09d8e843",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -362,7 +362,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -374,9 +374,9 @@
                 "manufacturer": "Philips",
                 "model": "Hue dimmer switch (324131092621)",
                 "name": "Room1 Hue Switch",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "5c755d8ed6afd2c6302020eb82af4734",
+                "id": "3e1575cc81d0a01df2cc690a96214188",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -384,7 +384,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -396,9 +396,9 @@
                 "manufacturer": "Xiaomi",
                 "model": "Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)",
                 "name": "Room1 Temperature Sensor",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "395456c0676155e2be332161c3563673",
+                "id": "b6cba3cbaed3235428bb87dea00edf02",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -406,7 +406,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -418,9 +418,9 @@
                 "manufacturer": "Xiaomi",
                 "model": "MiJia door & window contact sensor (MCCGQ01LM)",
                 "name": "Main Door Sensor",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "10b86ab713455ad5f79f08bc7887fba8",
+                "id": "ba94bdb5b786490ae017239e49e44782",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -428,7 +428,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -440,9 +440,9 @@
                 "manufacturer": "Xiaomi",
                 "model": "MiJia wireless switch (WXKG01LM)",
                 "name": "Room2 Button2",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "2fbaf918d179fff7fd97fabc0b41148f",
+                "id": "e88596b6a98b1019eeeba16b69c3fd9e",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -450,7 +450,7 @@
             },
             {
                 "config_entries": [
-                    "7236655868352b163f30ef0917da469d"
+                    "f1b2a0cb7e094716ab51d08104ff7ca6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -462,42 +462,15 @@
                 "manufacturer": "Philips",
                 "model": "Hue dimmer switch (324131092621)",
                 "name": "Room2 Hue Switch",
-                "sw_version": "Zigbee2MQTT 1.16.1",
+                "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
-                "id": "ffc8cad2ab32b076da33f50fefad9a16",
+                "id": "b556c31f4fd7dfbf209542fb808d8edb",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null
             }
         ],
-        "deleted_devices": [
-            {
-                "config_entries": [
-                    "fa8355cab2304a38a1b663e3ce08dbb8"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:17:88:01:03:e6:e4:64"
-                    ]
-                ],
-                "id": "4c334f3f64d14c62a0852ea3353fb0cd"
-            },
-            {
-                "config_entries": [
-                    "fa8355cab2304a38a1b663e3ce08dbb8"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hue",
-                        "00:17:88:01:02:d7:ec:66"
-                    ]
-                ],
-                "id": "a2c16767c3f44e0bbd47e3185688106a"
-            }
-        ]
+        "deleted_devices": []
     }
 }

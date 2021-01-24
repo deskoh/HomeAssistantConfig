@@ -14,18 +14,17 @@ input_select:
       - Room 1
       - Room 2
     initial: Select Room
-  
+
 sensor:
   - platform: template
     sensors:
       vacuum_status:
         friendly_name: "Vacuum Status"
-        entity_id:
-          - vacuum.xiaomi_roborock
         value_template: "{{ state_attr('vacuum.xiaomi_roborock', 'status') }}"
 
 automation:
-  - alias: Vacuum Room
+  - id: vacuum_room
+    alias: Vacuum Room
     trigger:
     - platform: state
       entity_id: input_select.vacuum_room

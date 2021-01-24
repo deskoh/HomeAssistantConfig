@@ -1,3 +1,4 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
 homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
@@ -27,15 +28,19 @@ homeassistant:
 # Enables the frontend
 frontend:
 
+# Media browser
+media_source:
+
 # Enables configuration UI
 config:
 
 http:
-  # Secrets are defined in the file secrets.yaml
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   cors_allowed_origins:
     - https://google.com
+    - https://www.home-assistant.io
+
 
 # Discover some devices automatically
 # discovery:
@@ -47,15 +52,6 @@ http:
 #   default: warning
 #   logs:
 #     homeassistant.core: debug
-
-hassio:
-
-mobile_app:
-
-mqtt:
-  username: user
-  password: mqtt
-  client_id: haas_client
 
 recorder:
   purge_keep_days: 7
@@ -72,11 +68,6 @@ recorder:
       - sensor.room2_button1
       - sensor.room2_button2
       - input_select.room2_fan_swing_angle
-      - switch.novita_fan
-      - switch.novita_fan_speed
-      - switch.novita_fan_osc
-      - sensor.bridge_state
-
 # Enables support for tracking state changes over time
 history:
   exclude:
@@ -91,9 +82,6 @@ history:
       - input_select.room1_tv_channels
       - sensor.cpu_temperature
       - fan.xiaomi_fan
-      # Dummy sensors
-      - sensor.clock_media_baseurl
-      - sensor.workout_media_url
 
 # View all events in a logbook
 logbook:
@@ -119,7 +107,6 @@ sun:
 # Text to speech
 tts:
   - platform: google_translate
-    service_name: google_say
     base_url: !secret external_url
   # - platform: microsoft
   #   api_key: !secret microsoft_tts_key
@@ -163,14 +150,14 @@ google_assistant:
       aliases:
         - TV
         - Samsung TV
-    switch.novita_fan:
+    script.novita_fan_power:
       expose: true
       name: Novita Fan
       aliases:
         - Fan
     scene.night:
       expose: true
-  
+
 group: !include groups.yaml
 scene: !include scene.yaml
 automation: !include automations.yaml

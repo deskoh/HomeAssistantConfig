@@ -98,13 +98,43 @@
                                 },
                                 {
                                     "entity": "sensor.living_room_humidity"
+                                }
+                            ],
+                            "title": "Environment",
+                            "type": "glance",
+                            "state_color": false
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "vacuum.xiaomi_roborock"
+                                },
+                                {
+                                    "entity": "sensor.vacuum_status"
+                                },
+                                {
+                                    "entity": "input_select.vacuum_room"
+                                }
+                            ],
+                            "title": "Vacuum",
+                            "state_color": false
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.rpi_power_status"
                                 },
                                 {
                                     "entity": "sensor.cpu_temperature"
                                 }
                             ],
-                            "title": "Environment",
-                            "type": "glance"
+                            "footer": {
+                                "type": "graph",
+                                "entity": "sensor.cpu_temperature",
+                                "hours_to_show": 24
+                            }
                         },
                         {
                             "entities": [
@@ -117,23 +147,6 @@
                             ],
                             "title": "Links",
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.living_room_temperature"
-                                },
-                                {
-                                    "entity": "sensor.mi1_temp"
-                                },
-                                {
-                                    "entity": "sensor.mi2_temp"
-                                }
-                            ],
-                            "hours_to_show": 8,
-                            "refresh_interval": 0,
-                            "title": "Temperature",
-                            "type": "history-graph"
                         }
                     ]
                 },
@@ -143,10 +156,10 @@
                     "title": "Room 1",
                     "badges": [
                         {
-                            "entity": "sensor.mi1_temp"
+                            "entity": "sensor.room1_temp"
                         },
                         {
-                            "entity": "binary_sensor.mi1_motion_occupancy"
+                            "entity": "binary_sensor.room1_motion"
                         }
                     ],
                     "cards": [
@@ -209,12 +222,6 @@
                                     "entity": "input_select.room1_tv_channels"
                                 },
                                 {
-                                    "entity": "script.room1_tv_vol_up"
-                                },
-                                {
-                                    "entity": "script.room1_tv_vol_down"
-                                },
-                                {
                                     "entity": "script.room1_tv_source"
                                 },
                                 {
@@ -223,7 +230,14 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Samsung TV",
-                            "type": "entities"
+                            "type": "entities",
+                            "footer": {
+                                "type": "buttons",
+                                "entities": [
+                                    "script.room1_tv_vol_down",
+                                    "script.room1_tv_vol_up"
+                                ]
+                            }
                         },
                         {
                             "entities": [
@@ -233,16 +247,6 @@
                                     "icon": "hass:fan"
                                 },
                                 {
-                                    "entity": "script.novita_fan_faster",
-                                    "name": "Faster",
-                                    "icon": "hass:plus"
-                                },
-                                {
-                                    "entity": "script.novita_fan_slower",
-                                    "name": "Slower",
-                                    "icon": "hass:minus"
-                                },
-                                {
                                     "entity": "script.novita_fan_oscillate1",
                                     "name": "Oscillation",
                                     "icon": "mdi:rotate-3d"
@@ -250,21 +254,31 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Fan",
-                            "type": "entities"
+                            "type": "entities",
+                            "footer": {
+                                "type": "buttons",
+                                "entities": [
+                                    {
+                                        "entity": "script.novita_fan_slower",
+                                        "icon": "hass:minus"
+                                    },
+                                    {
+                                        "entity": "script.novita_fan_faster",
+                                        "icon": "hass:plus"
+                                    }
+                                ]
+                            }
                         },
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.mi1_temp"
+                                    "entity": "sensor.room1_temp"
                                 },
                                 {
-                                    "entity": "sensor.mi1_temp_humidity"
+                                    "entity": "sensor.room1_humidity"
                                 },
                                 {
-                                    "entity": "sensor.mi1_temp_pressure"
-                                },
-                                {
-                                    "entity": "sensor.mi1_motion_illuminance"
+                                    "entity": "sensor.room1_pressure"
                                 }
                             ],
                             "show_icon": true,
@@ -273,28 +287,7 @@
                             "type": "glance"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "scene.room_1_white"
-                                },
-                                {
-                                    "entity": "scene.room_1_color_loop"
-                                },
-                                {
-                                    "entity": "scene.room_1_arctic_aurora"
-                                },
-                                {
-                                    "entity": "scene.room_1_spring_blossom"
-                                },
-                                {
-                                    "entity": "scene.room_1_tropical_twilight"
-                                }
-                            ],
-                            "title": "Scenes",
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "media_player.room1_speaker",
+                            "entity": "media_player.room_1_speaker",
                             "type": "media-control"
                         },
                         {
@@ -313,10 +306,81 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "sensor.mi1_temp",
+                            "entity": "sensor.room1_temp",
                             "graph": "line",
                             "hours_to_show": 8,
                             "type": "sensor"
+                        },
+                        {
+                            "type": "horizontal-stack",
+                            "title": "Scene",
+                            "cards": [
+                                {
+                                    "type": "button",
+                                    "name": "White",
+                                    "icon": "mdi:palette",
+                                    "show_state": false,
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "scene.turn_on",
+                                        "service_data": {
+                                            "entity_id": "scene.room_1_white"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "name": "Colour",
+                                    "icon": "mdi:palette",
+                                    "show_state": false,
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "scene.turn_on",
+                                        "service_data": {
+                                            "entity_id": "scene.room_1_color_loop"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "name": "Blossom",
+                                    "icon": "mdi:palette",
+                                    "show_state": false,
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "scene.turn_on",
+                                        "service_data": {
+                                            "entity_id": "scene.room_1_spring_blossom"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "name": "Twilight",
+                                    "icon": "mdi:palette",
+                                    "show_state": false,
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "scene.turn_on",
+                                        "service_data": {
+                                            "entity_id": "scene.room_1_tropical_twilight"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "name": "Arctic",
+                                    "icon": "mdi:palette",
+                                    "show_state": false,
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "scene.turn_on",
+                                        "service_data": {
+                                            "entity_id": "scene.room_1_arctic_aurora"
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     ]
                 },
@@ -325,10 +389,10 @@
                     "title": "Room 2",
                     "badges": [
                         {
-                            "entity": "sensor.mi2_temp"
+                            "entity": "sensor.room2_temp"
                         },
                         {
-                            "entity": "binary_sensor.mi2_motion_occupancy"
+                            "entity": "binary_sensor.room_2_motion"
                         }
                     ],
                     "cards": [
@@ -395,13 +459,10 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.mi2_temp_humidity"
+                                    "entity": "sensor.room2_humidity"
                                 },
                                 {
-                                    "entity": "sensor.mi2_temp_pressure"
-                                },
-                                {
-                                    "entity": "sensor.mi2_motion_illuminance"
+                                    "entity": "sensor.room2_pressure"
                                 }
                             ],
                             "show_name": false,
@@ -424,7 +485,7 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "media_player.room2_speaker",
+                            "entity": "media_player.room_2_speaker",
                             "type": "media-control"
                         },
                         {
@@ -443,7 +504,7 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "sensor.mi2_temp",
+                            "entity": "sensor.room2_temp",
                             "graph": "line",
                             "hours_to_show": 12,
                             "type": "sensor"
@@ -514,19 +575,7 @@
                             "type": "gauge"
                         },
                         {
-                            "entity": "sensor.mi1_temp_battery",
-                            "max": 100,
-                            "min": 0,
-                            "severity": {
-                                "green": 30,
-                                "red": 10,
-                                "yellow": 20
-                            },
-                            "type": "gauge",
-                            "name": "Room 1 Sensor Battery"
-                        },
-                        {
-                            "entity": "sensor.mi2_temp_battery",
+                            "entity": "sensor.room1_temperature_sensor_battery",
                             "max": 100,
                             "min": 0,
                             "severity": {
@@ -537,7 +586,7 @@
                             "type": "gauge"
                         },
                         {
-                            "entity": "sensor.mi1_motion_battery",
+                            "entity": "sensor.room2_temperature_sensor_battery",
                             "max": 100,
                             "min": 0,
                             "severity": {
@@ -545,11 +594,10 @@
                                 "red": 10,
                                 "yellow": 20
                             },
-                            "type": "gauge",
-                            "name": "Room 1 Motion Battery"
+                            "type": "gauge"
                         },
                         {
-                            "entity": "sensor.mi2_motion_battery",
+                            "entity": "sensor.room1_motion_sensor_battery",
                             "max": 100,
                             "min": 0,
                             "severity": {
@@ -557,8 +605,18 @@
                                 "red": 10,
                                 "yellow": 20
                             },
-                            "type": "gauge",
-                            "name": "Room 2 Motion Battery"
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.room_2_motion_sensor_battery",
+                            "max": 100,
+                            "min": 0,
+                            "severity": {
+                                "green": 30,
+                                "red": 10,
+                                "yellow": 20
+                            },
+                            "type": "gauge"
                         },
                         {
                             "entity": "sensor.main_door_sensor_battery",
@@ -573,37 +631,6 @@
                         }
                     ],
                     "icon": "mdi:battery"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.zigbee_permit_join"
-                                },
-                                {
-                                    "entity": "sensor.bridge_state"
-                                }
-                            ],
-                            "title": "Zigbee",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "automation.cuckoo_clock"
-                                },
-                                {
-                                    "entity": "automation.sg_psi"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Automations",
-                            "type": "entities"
-                        }
-                    ],
-                    "icon": "mdi:settings"
                 }
             ]
         }

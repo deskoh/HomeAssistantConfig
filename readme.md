@@ -1,6 +1,6 @@
 # [Home Assistant](https://www.home-assistant.io/) Configuration
 
-> HA Version: 2020.12.1
+> HA Version: 2021.1.5
 
 ## Automations
 
@@ -80,7 +80,7 @@
 * 2 x Xiaomi Wireless Switch WXKG01LM
 * Google Home Mini
 
-## References
+## References / Resources
 
 [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt)
 
@@ -91,3 +91,5 @@
 [Xiaomi Fan Component](https://github.com/syssi/xiaomi_fan)
 
 https://github.com/CCOSTAN/Home-AssistantConfig
+
+[Debugging the HassOS](https://developers.home-assistant.io/docs/operating-system/debugging/)

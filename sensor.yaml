@@ -1,8 +1,3 @@
-- platform: mqtt
-  name: Bridge state
-  state_topic: "zigbee2mqtt/bridge/state"
-  icon: mdi:router-wireless
-
 - platform: time_date
   display_options:
     - 'date_time'
@@ -24,16 +19,14 @@
 
 - platform: command_line
   name: CPU Temperature
-  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  command: 'cat /sys/class/thermal/thermal_zone0/temp'
   # If errors occur, remove degree symbol below
   unit_of_measurement: "°C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
   scan_interval: 200
 
 # Dummy sensor to allow secrets in template
-- platform: template
-  sensors:
-    workout_media_url:
-      value_template: !secret workout_media_url
-    clock_media_baseurl:
-      value_template: !secret clock_media_baseurl
+# - platform: template
+#   sensors:
+#     my_secret:
+#       value_template: !secret my_secret_key

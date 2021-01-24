@@ -28,12 +28,6 @@ sensor.date_time:
   hidden: true
 sensor.time:
   hidden: true
-media_player.room1_speaker:
-  friendly_name: Room 1 Speaker
-  icon: mdi:speaker
-media_player.room2_speaker:
-  friendly_name: Room 2 Speaker
-  icon: mdi:speaker
 script.room1_7min_workout:
   icon: mdi:dumbbell
 script.room2_7min_workout:
@@ -42,13 +36,3 @@ automation.room_1_motion_detection:
   icon: mdi:animation
 automation.room_2_motion_detection:
   icon: mdi:animation
-# sensor.living_room_temperature:
-#   icon: mdi:thermometer
-# sensor.living_room_humidity:
-#   icon: mdi:water-percent
-# sensor.owm_cloud_coverage:
-#   friendly_name: Cloud Coverage
-#   icon: mdi:cloud
-# sensor.owm_rain:
-#   friendly_name: Rain
-#   icon: mdi:weather-rainy
