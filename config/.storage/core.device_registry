@@ -66,7 +66,7 @@
                 "manufacturer": "Signify",
                 "model": "BSB002",
                 "name": "Philips hue",
-                "sw_version": "1942135050",
+                "sw_version": "1944102110",
                 "entry_type": null,
                 "id": "258113335ddb4107bb2155f026f1ea7a",
                 "via_device_id": null,
@@ -92,7 +92,7 @@
                 "entry_type": null,
                 "id": "a43de49056964533af6fd0c3acbdf3a7",
                 "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
-                "area_id": null,
+                "area_id": "bedroom_1",
                 "name_by_user": null,
                 "disabled_by": null
             },
@@ -114,7 +114,7 @@
                 "entry_type": null,
                 "id": "98cb3cca27014527812867c7fe1a1091",
                 "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
-                "area_id": null,
+                "area_id": "bedroom_1",
                 "name_by_user": null,
                 "disabled_by": null
             },
@@ -136,7 +136,7 @@
                 "entry_type": null,
                 "id": "d730ae11c5014d1487d3cccebc947d2d",
                 "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
-                "area_id": null,
+                "area_id": "bedroom_2",
                 "name_by_user": null,
                 "disabled_by": null
             },
@@ -158,7 +158,7 @@
                 "entry_type": null,
                 "id": "19d734b07445460cb8fee1257bc29ecd",
                 "via_device_id": "258113335ddb4107bb2155f026f1ea7a",
-                "area_id": null,
+                "area_id": "bedroom_2",
                 "name_by_user": null,
                 "disabled_by": null
             },
@@ -465,6 +465,236 @@
                 "sw_version": "Zigbee2MQTT 1.17.0",
                 "entry_type": null,
                 "id": "b556c31f4fd7dfbf209542fb808d8edb",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "b4721bfddc2aad0b3a079413f192357e"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "cast",
+                        "9def70dfeebc3aa01344a8a1b8e7e4e6"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "MiTV-MSSP2",
+                "name": "Bedroom TV",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "5262c6a6099613f37c3028e31073b71a",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "4f90ea2dfb886cd8ba4073bb86b8d6e7"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_mosquitto"
+                    ]
+                ],
+                "manufacturer": "core",
+                "model": "Home Assistant Add-on",
+                "name": "Mosquitto broker",
+                "sw_version": "5.1",
+                "entry_type": "service",
+                "id": "657905bd24f518f2475397cabacaf537",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "4f90ea2dfb886cd8ba4073bb86b8d6e7"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_samba"
+                    ]
+                ],
+                "manufacturer": "core",
+                "model": "Home Assistant Add-on",
+                "name": "Samba share",
+                "sw_version": "9.3.0",
+                "entry_type": "service",
+                "id": "740219a56bc626debab0f70f319c6981",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "4f90ea2dfb886cd8ba4073bb86b8d6e7"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_letsencrypt"
+                    ]
+                ],
+                "manufacturer": "core",
+                "model": "Home Assistant Add-on",
+                "name": "Let's Encrypt",
+                "sw_version": "4.11.0",
+                "entry_type": "service",
+                "id": "9aa5cbbc05a7d51bfd0ff7e2943bd71c",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "4f90ea2dfb886cd8ba4073bb86b8d6e7"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "7ad98f9c_zigbee2mqtt"
+                    ]
+                ],
+                "manufacturer": "7ad98f9c",
+                "model": "Home Assistant Add-on",
+                "name": "Zigbee2mqtt",
+                "sw_version": "1.17.0.1",
+                "entry_type": "service",
+                "id": "8134096c685f16e9b35d28d82005219a",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "4f90ea2dfb886cd8ba4073bb86b8d6e7"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_adguard"
+                    ]
+                ],
+                "manufacturer": "a0d7b954",
+                "model": "Home Assistant Add-on",
+                "name": "AdGuard Home",
+                "sw_version": "3.0.0",
+                "entry_type": "service",
+                "id": "71bb1745453ab937df48560ca87bc7ff",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "4f90ea2dfb886cd8ba4073bb86b8d6e7"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "OS"
+                    ]
+                ],
+                "manufacturer": "Home Assistant",
+                "model": "Home Assistant Operating System",
+                "name": "Home Assistant Operating System",
+                "sw_version": "5.10",
+                "entry_type": "service",
+                "id": "d3b5af33057f959a5b90175fa51e96f0",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "100681d0bb61eae275723fb940a7bf7f"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "asuswrt",
+                        "AsusWRT"
+                    ]
+                ],
+                "manufacturer": "Asus",
+                "model": "Asus Router",
+                "name": "192.168.1.1",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "01231287c4012b67ffe4c999423d2c0b",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "4ffc3c4d59cc49515e279b22abec1a4c"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "40:31:3c:a9:78:70"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "xiaomi_miio",
+                        "40:31:3c:a9:78:70"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "roborock.vacuum.s5",
+                "name": "roborock.vacuum.s5",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "4db036dfbdb1fa04de7f1557caf8f3ba",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "29e1a8ca8e8af6c8e98de1d0574f2c90"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "28:6c:07:fb:94:0d"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "xiaomi_miio",
+                        "28:6c:07:fb:94:0d"
+                    ]
+                ],
+                "manufacturer": "Xiaomi",
+                "model": "zhimi.airmonitor.v1",
+                "name": "zhimi.airmonitor.v1",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "62c33336bd332a144608d29a619e2422",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,

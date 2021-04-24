@@ -37,7 +37,7 @@ def toggle_entity(hass, entity, entity_id):
 
 def tts(hass, speaker, message):
     service_data = {'entity_id': speaker, 'message': message, 'cache': 'false'}
-    hass.services.call('tts', 'google_say', service_data, False)
+    hass.services.call('tts', 'google_translate_say', service_data, False)
 
 light_states = hass.states.get(light_group)
 

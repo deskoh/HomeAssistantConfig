@@ -28,7 +28,7 @@ if button == 'Room1 Button':
     elif click == 'triple':
         service_data = {'entity_id': 'media_player.room_1_speaker',
                         'message': 'Setting lights to maximum brightness'}
-        hass.services.call('tts', 'google_say', service_data, False)
+        hass.services.call('tts', 'google_translate_say', service_data, False)
         activate_scene(hass, 'scene.room_1_white')
     elif click == 'quadruple':
         turn_off(hass, 'light', 'light.room_1_lights')
@@ -55,7 +55,7 @@ elif button == 'Room2 Button1' or button == 'Room2 Button2':
     elif click == 'triple':
         service_data = {'entity_id': 'media_player.room_2_speaker',
                         'message': 'Activating night scene'}
-        hass.services.call('tts', 'google_say', service_data, False)
+        hass.services.call('tts', 'google_translate_say', service_data, False)
         activate_scene(hass, 'scene.night')
     elif click == 'quadruple':
         turn_off(hass, 'light', 'light.room_2_lights')

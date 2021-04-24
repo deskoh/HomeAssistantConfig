@@ -144,12 +144,6 @@ google_assistant:
     fan.xiaomi_fan:
       expose: true
       name: Fan
-    switch.room1_tv:
-      expose: true
-      name: Room 1 TV
-      aliases:
-        - TV
-        - Samsung TV
     script.novita_fan_power:
       expose: true
       name: Novita Fan
@@ -168,17 +162,6 @@ sensor: !include sensor.yaml
 rest_command: !include rest.yaml
 
 python_script:
-
-asuswrt:
-  host: 192.168.1.1
-  username: admin
-  password: !secret router_password
-
-device_tracker:
-  - platform: asuswrt
-    interval_seconds: 45
-    new_device_defaults:
-      track_new_devices: False
 
 # inputs
 input_boolean: !include input_boolean.yaml

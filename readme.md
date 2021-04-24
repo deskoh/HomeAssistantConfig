@@ -1,6 +1,6 @@
 # [Home Assistant](https://www.home-assistant.io/) Configuration
 
-> HA Version: 2021.1.5
+> HA Version: 2021.4.6
 
 ## Automations
 

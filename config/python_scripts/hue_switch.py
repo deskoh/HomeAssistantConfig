@@ -35,7 +35,7 @@ def toggle_entity(hass, entity, entity_id):
 
 def tts(hass, speaker, message):
     service_data = {'entity_id': speaker, 'message': message, 'cache': 'false'}
-    hass.services.call('tts', 'google_say', service_data, False)
+    hass.services.call('tts', 'google_translate_say', service_data, False)
 
 
 if fan_inputs is not None:
@@ -103,7 +103,7 @@ elif action == 'up-press' or action == 'down-press' or action == 'up-hold-releas
             hass.services.call(
                 'input_select', 'select_option', service_data, False)
             service_data = {'entity_id': speaker, 'message': message}
-            hass.services.call('tts', 'google_say', service_data, False)
+            hass.services.call('tts', 'google_translate_say', service_data, False)
         elif action == 'down-hold-release':
             # Fan natural mode control
             natural_mode = hass.states.get(fan_natural).state

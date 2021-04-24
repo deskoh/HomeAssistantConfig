@@ -108,7 +108,7 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "vacuum.xiaomi_roborock"
+                                    "entity": "vacuum.roborock_vacuum_s5"
                                 },
                                 {
                                     "entity": "sensor.vacuum_status"
@@ -160,6 +160,12 @@
                         },
                         {
                             "entity": "binary_sensor.room1_motion"
+                        },
+                        {
+                            "entity": "media_player.mitv_mssp2"
+                        },
+                        {
+                            "entity": "sensor.zhimi_airmonitor_v1"
                         }
                     ],
                     "cards": [
@@ -392,7 +398,7 @@
                             "entity": "sensor.room2_temp"
                         },
                         {
-                            "entity": "binary_sensor.room_2_motion"
+                            "entity": "binary_sensor.room2_motion"
                         }
                     ],
                     "cards": [
